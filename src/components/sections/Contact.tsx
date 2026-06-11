@@ -1,5 +1,7 @@
 import { contactLinks, contactListAriaLabel, contactSection } from "@/data/socials";
+import { getCopyValue, isEmailHref } from "@/lib/recruiter";
 import { Container } from "@/components/ui/Container";
+import { CopyButton } from "@/components/ui/CopyButton";
 import { ContactIcon } from "@/components/ui/Icons";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
@@ -19,13 +21,16 @@ export function Contact() {
                   <div>
                     <span className="contact__item-label">{link.label}</span>
                     <div className="contact__item-value">
-                      <a
-                        href={link.href}
-                        rel={link.href.startsWith("http") ? "noreferrer noopener" : undefined}
-                        target={link.href.startsWith("http") ? "_blank" : undefined}
-                      >
-                        {link.value}
-                      </a>
+                      <div className="contact__item-actions">
+                        <a
+                          href={link.href}
+                          rel={link.href.startsWith("http") ? "noreferrer noopener" : undefined}
+                          target={link.href.startsWith("http") ? "_blank" : undefined}
+                        >
+                          {link.value}
+                        </a>
+                        {isEmailHref(link.href) ? <CopyButton value={getCopyValue(link)} /> : null}
+                      </div>
                     </div>
                   </div>
                 </li>

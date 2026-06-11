@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
 
-const isGithubActions = process.env.GITHUB_ACTIONS === "true";
-const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "";
-const basePath = isGithubActions && repositoryName ? `/${repositoryName}` : "";
+import { getPagesDeployConfig } from "./src/lib/site-config";
+
+const { assetPrefix, basePath } = getPagesDeployConfig(process.env);
 
 const nextConfig: NextConfig = {
   output: "export",
@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   basePath,
-  assetPrefix: basePath || undefined,
+  assetPrefix,
 };
 
 export default nextConfig;

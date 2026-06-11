@@ -943,6 +943,33 @@ ul {
   gap: 10px;
 }
 
+.resume__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.resume__meta-item {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text-muted);
+  background: var(--surface);
+}
+
+.resume__hint {
+  margin-top: 14px;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 40ch;
+}
+
 .contact__grid {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -1002,12 +1029,83 @@ ul {
   font-weight: 500;
 }
 
+.contact__item-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 .contact__item-value a {
   color: var(--accent);
 }
 
 .contact__item-value a:hover {
   text-decoration: underline;
+}
+
+.contact__copy-btn {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 5px 9px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background-color 0.15s;
+}
+
+.contact__copy-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--white);
+}
+
+.not-found {
+  min-height: calc(100vh - 220px);
+  display: flex;
+  align-items: center;
+}
+
+.not-found__inner {
+  max-width: 720px;
+}
+
+.not-found__code {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  margin-bottom: 12px;
+}
+
+.not-found__title {
+  max-width: 13ch;
+  margin-bottom: 18px;
+}
+
+.not-found__lead {
+  max-width: 42ch;
+}
+
+.not-found__actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 34px;
+}
+
+.not-found__note {
+  margin-top: 20px;
+  font-size: 13.5px;
+  color: var(--text-subtle);
+  max-width: 42ch;
+  line-height: 1.7;
 }
 
 .footer {
@@ -1198,6 +1296,10 @@ ul {
   .contact__grid {
     grid-template-columns: 1fr;
     gap: 48px;
+  }
+
+  .not-found {
+    min-height: auto;
   }
 }
 
