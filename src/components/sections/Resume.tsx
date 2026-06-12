@@ -56,14 +56,6 @@ export function Resume() {
                 {profile.resume.open.label}
               </Button>
             </div>
-            <div aria-label="Resume access details" className="resume__meta">
-              <span className="resume__meta-item">{profile.hero.availabilityLabel}</span>
-              <span className="resume__meta-item">PDF resume</span>
-              <span className="resume__meta-item">Browser preview</span>
-            </div>
-            <p className="resume__hint">
-              Use the browser option for a quick review, or download the PDF when you want a copy to keep.
-            </p>
           </div>
         </div>
       </Container>

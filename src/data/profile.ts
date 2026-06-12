@@ -88,10 +88,10 @@ export const profile: Profile = {
         "My resume covers education, leadership roles, internship experience, and selected technical projects.",
     },
     preview: {
-      kind: "placeholder",
-      label: "Resume preview placeholder",
+      kind: "image",
+      src: "images/resume-preview.png",
+      alt: "Preview of Erwin Gamaliel Gamalong's resume",
       text: "Resume preview",
-      todo: "TODO: replace with a resume thumbnail or embedded preview image.",
     },
     download: {
       label: "Download PDF",

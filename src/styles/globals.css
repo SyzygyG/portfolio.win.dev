@@ -842,6 +842,22 @@ ul {
   box-shadow: var(--shadow-soft);
 }
 
+.cert-card__media {
+  display: block;
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  margin-bottom: 18px;
+}
+
+.cert-card__image {
+  object-fit: contain;
+  padding: 10px;
+}
+
 .cert-card__issuer {
   font-family: var(--font-mono), monospace;
   font-size: 10.5px;
@@ -902,6 +918,7 @@ ul {
   justify-content: center;
   flex-direction: column;
   gap: 12px;
+  box-shadow: var(--shadow-soft);
 }
 
 .resume__preview-image {
@@ -926,7 +943,7 @@ ul {
   font-size: clamp(24px, 3.5vw, 36px);
   font-weight: 400;
   color: var(--ink);
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   line-height: 1.15;
 }
 
@@ -934,40 +951,17 @@ ul {
   font-size: 14.5px;
   color: var(--text-muted);
   line-height: 1.7;
-  margin-bottom: 28px;
+  margin-bottom: 22px;
 }
 
 .resume__actions {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  margin-top: 6px;
 }
 
-.resume__meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 18px;
-}
-
-.resume__meta-item {
-  font-family: var(--font-mono), monospace;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 5px 10px;
-  border: 1px solid var(--border);
-  border-radius: 3px;
-  color: var(--text-muted);
-  background: var(--surface);
-}
-
-.resume__hint {
-  margin-top: 14px;
-  font-size: 13.5px;
-  line-height: 1.7;
-  color: var(--text-muted);
-  max-width: 40ch;
+.resume__actions .btn {
+  width: 100%;
+  justify-content: center;
 }
 
 .contact__grid {
