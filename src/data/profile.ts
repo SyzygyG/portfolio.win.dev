@@ -57,10 +57,9 @@ export const profile: Profile = {
       "Software Quality",
     ],
     avatar: {
-      kind: "placeholder",
-      label: "Photo of Erwin Gamaliel Gamalong",
-      initials: "EG",
-      todo: "TODO: replace with a professional portrait image in public/images/.",
+      kind: "image",
+      src: "images/erwin-headshot.png",
+      alt: "Professional headshot of Erwin Gamaliel Gamalong",
     },
   },
   coreStack: [
