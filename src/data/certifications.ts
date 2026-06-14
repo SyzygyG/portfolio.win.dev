@@ -25,9 +25,9 @@ const certificationEntries: Certification[] = [
   },
   {
     issuer: "Commission on Human Rights",
-    title: "Technical Assistant on Philippine Working Group 15",
+    title: "Human Rights and the Security Sector in the Dynamic 21st Century",
     issuedOn: { year: 2025, month: 8, day: 20 },
-    context: "Human Rights and the Security Sector in the Dynamic 21st Century",
+    context: "Human Rights Seminar in Celebration of International Humanitiarian Law",
     verifyHref: "https://chr.gov.ph/",
     verifyLabel: "View issuer",
     ariaLabel: "Open Commission on Human Rights website",

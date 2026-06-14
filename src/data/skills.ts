@@ -9,39 +9,39 @@ export const skillsSection: SectionIntro = {
 };
 
 export const skillsAudit: ContentAudit = {
-  status: "needs-review",
-  note: "TODO: confirm the current skills inventory against the resume and project history before treating it as final.",
+  status: "confirmed",
+  note: "Repository-aligned inventory based on the current public GitHub projects and the tools directly reflected in them.",
 };
 
 export const skillGroups: SkillGroup[] = [
   {
     title: "Programming Languages",
     ariaLabel: "Programming languages",
-    items: ["TypeScript", "Go", "Python", "Rust", "Java", "SQL", "Bash"],
+    items: ["TypeScript", "JavaScript", "Python", "PHP", "Dart", "C#", "C++", "HTML", "CSS"],
   },
   {
-    title: "Frontend",
-    ariaLabel: "Frontend technologies",
-    items: ["React", "Next.js", "Vue 3", "Tailwind CSS", "GraphQL", "Vite"],
+    title: "Frontend & Web",
+    ariaLabel: "Frontend and web technologies",
+    items: ["React", "Next.js", "Angular", "Vite", "Tailwind CSS", "Bootstrap", "jQuery", "Razor"],
   },
   {
-    title: "Backend",
-    ariaLabel: "Backend technologies",
-    items: ["Node.js", "Go / Chi", "FastAPI", "gRPC", "REST APIs", "Kafka", "Redis"],
+    title: "Backend & APIs",
+    ariaLabel: "Backend and API technologies",
+    items: ["Node.js", "Express", "Flask", "Laravel", "ASP.NET MVC", "REST APIs", "Socket.io"],
   },
   {
-    title: "Databases",
-    ariaLabel: "Databases",
-    items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "ClickHouse", "Prisma"],
+    title: "Mobile, IoT & Realtime",
+    ariaLabel: "Mobile, Internet of Things, and realtime technologies",
+    items: ["Flutter", "Firebase", "Cloud Firestore", "Arduino", "Bluetooth"],
   },
   {
-    title: "Cloud & DevOps",
-    ariaLabel: "Cloud and DevOps tools",
-    items: ["AWS", "GCP", "Docker", "Kubernetes", "Terraform", "GitHub Actions", "Helm"],
+    title: "Data & Services",
+    ariaLabel: "Data and service platforms",
+    items: ["MongoDB Atlas", "MySQL", "Hive", "Cloudinary", "PayMongo", "Firebase Data Connect"],
   },
   {
-    title: "Security & Tools",
-    ariaLabel: "Security and tooling",
-    items: ["OWASP Top 10", "JWT / OAuth2", "Burp Suite", "Git", "Datadog", "Sentry", "Postman"],
+    title: "Tooling & Deployment",
+    ariaLabel: "Development tooling and deployment platforms",
+    items: ["Git", "Docker", "Playwright", "pnpm", "Vercel", "Railway", "Visual Studio"],
   },
 ];
