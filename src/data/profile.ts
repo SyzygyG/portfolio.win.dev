@@ -76,7 +76,7 @@ export const profile: Profile = {
   ],
   learning: {
     label: "Currently learning",
-    items: ["Introduction to APIs", "Cloud Networking", "Relational vs NoSQL Databases", "Cloud Security"],
+    items: ["DevOps", "LLM Integration", "Web Security", "SEO Advanced Concepts"],
   },
   resume: {
     section: {

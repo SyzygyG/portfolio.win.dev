@@ -10,7 +10,7 @@ export const experienceSection: SectionIntro = {
 
 const experienceEntries: ExperienceItem[] = [
   {
-    company: "Quezon City University / Hytec Power Inc.",
+    company: "Hytec Power Inc.",
     role: "Full Stack Developer - Hytec Power Inc. Virtual Tour and CMS",
     range: {
       start: { year: 2026 },
@@ -26,7 +26,7 @@ const experienceEntries: ExperienceItem[] = [
     ariaLabel: "Internship project for Hytec Power Inc. Virtual Tour",
   },
   {
-    company: "Quezon City University / Hytec Power Inc.",
+    company: "Hytec Power Inc.",
     role: "Full Stack Developer - Hytec Power Inc. Website and CMS",
     range: {
       start: { year: 2026 },
