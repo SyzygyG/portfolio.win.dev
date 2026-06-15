@@ -32,6 +32,12 @@ export const projects: Project[] = [
         kind: "github",
         ariaLabel: "VIDERE GitHub repository",
       },
+      {
+        label: "Live demo",
+        href: "https://viderevision.vercel.app/",
+        kind: "external",
+        ariaLabel: "VIDERE live demo",
+      },
     ],
     media: {
       kind: "image",
@@ -48,7 +54,14 @@ export const projects: Project[] = [
     description:
       "Created a 3D virtual tour for Hytec Power Inc. using Google Model Viewer and Photo Sphere Viewer, with Laravel supporting the content management system behind the experience.",
     stack: ["Google Model Viewer", "Photo Sphere Viewer", "Laravel", "Virtual Tour"],
-    links: [],
+    links: [
+      {
+        label: "Live demo",
+        href: "https://virtual-tour.e-hytec.dev/tour",
+        kind: "external",
+        ariaLabel: "Hytec Power Inc. Virtual Tour live demo",
+      },
+    ],
     media: {
       kind: "image",
       src: "images/projects/hytec-virtual-tour.png",
@@ -63,7 +76,14 @@ export const projects: Project[] = [
     description:
       "Developed qcujournals.com using PKP Open Journal Systems to manage scholarly peer-reviewed journals and streamline submission, peer review, editing, and indexing workflows.",
     stack: ["PKP Open Journal Systems", "Academic Publishing", "Workflow Management"],
-    links: [],
+    links: [
+      {
+        label: "Live demo",
+        href: "https://qcujournals.com/",
+        kind: "external",
+        ariaLabel: "QCU Journals live site",
+      },
+    ],
     media: {
       kind: "image",
       src: "images/projects/qcu-journals-preview.png",
