@@ -24,15 +24,6 @@ const certificationEntries: Certification[] = [
     ariaLabel: "Open ENCCULT XV certificate for Philippine Working Group 15",
   },
   {
-    issuer: "Commission on Human Rights",
-    title: "Human Rights and the Security Sector in the Dynamic 21st Century",
-    issuedOn: { year: 2025, month: 8, day: 20 },
-    context: "Human Rights Seminar in Celebration of International Humanitiarian Law",
-    verifyHref: "https://chr.gov.ph/",
-    verifyLabel: "View issuer",
-    ariaLabel: "Open Commission on Human Rights website",
-  },
-  {
     issuer: "PhilDev x Wells Fargo",
     title: "SHE++ Masterclass on Alibaba Cloud System",
     issuedOn: { year: 2025, month: 4, day: 25 },
