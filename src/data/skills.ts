@@ -4,8 +4,8 @@ import type { SkillGroup } from "@/types/skill";
 export const skillsSection: SectionIntro = {
   id: "skills-heading",
   eyebrow: "Technical skills",
-  title: "Tools of the trade.",
-  lead: "A current inventory of tools and platforms connected to my project, coursework, and internship experience.",
+  title: "Programming Expertise and Toolkits",
+  lead: "Listed here are the tools and platforms connected to my project, coursework, and internship experiences.",
 };
 
 export const skillsAudit: ContentAudit = {
@@ -17,17 +17,17 @@ export const skillGroups: SkillGroup[] = [
   {
     title: "Programming Languages",
     ariaLabel: "Programming languages",
-    items: ["TypeScript", "JavaScript", "Python", "PHP", "Dart", "C#", "C++", "HTML", "CSS"],
+    items: ["TypeScript", "JavaScript", "Java", "Python", "PHP", "Dart", "C#", "C++", "HTML", "CSS"],
   },
   {
     title: "Frontend & Web",
     ariaLabel: "Frontend and web technologies",
-    items: ["React", "Next.js", "Angular", "Vite", "Tailwind CSS", "Bootstrap", "jQuery", "Razor"],
+    items: ["React", "Next.js", "Angular", "Vite", "Tailwind", "Bootstrap", "jQuery", "Razor"],
   },
   {
     title: "Backend & APIs",
     ariaLabel: "Backend and API technologies",
-    items: ["Node.js", "Express", "Flask", "Laravel", "ASP.NET MVC", "REST APIs", "Socket.io"],
+    items: ["Node.js", "Express", "Flask", "Laravel", "ASP.NET", "REST APIs"],
   },
   {
     title: "Mobile, IoT & Realtime",
@@ -37,11 +37,11 @@ export const skillGroups: SkillGroup[] = [
   {
     title: "Data & Services",
     ariaLabel: "Data and service platforms",
-    items: ["MongoDB Atlas", "MySQL", "Hive", "Cloudinary", "PayMongo", "Firebase Data Connect"],
+    items: ["MongoDB Atlas", "MySQL", "Cloudinary", "PayMongo", "Firebase Data Connect"],
   },
   {
     title: "Tooling & Deployment",
     ariaLabel: "Development tooling and deployment platforms",
-    items: ["Git", "Docker", "Playwright", "pnpm", "Vercel", "Railway", "Visual Studio"],
+    items: ["Git and GitHub", "Docker", "Android Studio", "Vercel", "Railway", "Visual Studio and Visual Studio Code", "PuTTTy"],
   },
 ];

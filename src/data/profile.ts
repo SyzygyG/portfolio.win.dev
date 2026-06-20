@@ -7,23 +7,23 @@ const emailContact = contactEntries.find((link) => link.icon === "email");
 
 export const profile: Profile = {
   name: "Erwin Gamaliel Gamalong",
-  role: "Full Stack Developer",
-  title: "Erwin Gamaliel Gamalong - Full Stack Developer",
+  role: "Full Stack Developer Project Manager",
+  title: "Erwin Gamaliel Gamalong - Full Stack Developer | Project Manager",
   description:
-    "Erwin Gamaliel Gamalong - Goal-oriented full stack developer with experience across web, mobile, CMS, and academic publishing platforms.",
-  keywords: "Erwin Gamalong, Full Stack Developer, React, Node.js, PHP, Flutter, portfolio",
+    "Erwin Gamaliel Gamalong - Goal-oriented full stack developer and project manager with experience across web and mobile development.",
+  keywords: "Erwin Gamalong, Full Stack Developer, Project Manager, React, Node.js, PHP, Flutter, portfolio",
   ogDescription:
-    "Goal-oriented full stack developer with experience leading web, mobile, and internship-based software projects.",
+    "Goal-oriented full stack developer and project manager with experience leading web and mobile software projects.",
   location,
   hero: {
     availabilityLabel: "Available for opportunities",
     heading: [
-      { text: "Building software" },
-      { text: "that ships", emphasis: true },
-      { text: "and scales.", emphasis: true },
+      { text: "Full Stack Developer & Project Manager",},
+      { text: "in Quezon City", emphasis: true },
+
     ],
     subcopy:
-      "Goal-oriented and adaptable full stack developer with hands-on experience in web, mobile, CMS, and various technical projects. Based in Quezon City, Philippines.",
+      "Goal-oriented and adaptable full stack developer with hands-on experience in web and mobile development, content-management systems, and background as a project manager for various technical projects. Based in Quezon City, Philippines.",
     stackLabel: "Core stack",
     actions: [
       { label: "View projects", href: "#projects", variant: "primary", icon: "folder" },
@@ -35,24 +35,24 @@ export const profile: Profile = {
     section: {
       id: "about-heading",
       eyebrow: "About",
-      title: "Engineering with intention.",
+      title: "Know more about Erwin.",
     },
     paragraphs: [
-      "I'm a goal-oriented and adaptable developer who has built a diverse skill set through academic, internship, and project leadership roles. My work has ranged from web platforms and content systems to mobile applications and immersive digital experiences.",
-      "I enjoy working across the full stack and adapting to changing requirements. My experience includes React, PHP, Python, .NET MVC, Flutter, Node.js, Firebase, and Oracle, along with the development tools that help teams collaborate and ship reliably.",
-      "Beyond writing code, I've also led teams in building standalone, web, and mobile applications. I value coordination, clear communication, and delivering high-quality results ahead of deadlines whenever possible.",
+      "I'm Erwin Gamaliel Gamalong, a full stack developer and project manager, who has built a diverse skill set through my academic career, intern experience, and project leadership roles. My work has ranged from web platforms and mobile applications to immersive virtual environments and project lifecycles.",
+      "I enjoy working as a full stack and adapting to different requirements. My experience includes, but not limited to React, PHP, Python, .NET, Flutter, Firebase, and Oracle, along with the development tools that help teams collaborate towards one common objective.",
+      "Beyond writing code, I've also led teams in building standalone, web, and mobile applications using Agile methodologies. I value coordination, clear communication, and high-quality results. I am a HUGE believer of the Laissez-faire leadership and trusting each individual on the team.",
     ],
     meta: [
       { label: "Location", value: [location] },
       { label: "Degree", value: ["B.S. Information Technology", "Quezon City University", "Graduation Date: June 2026"] },
-      { label: "Status", value: ["Open to full-time roles"] },
+      { label: "Status", value: ["Open to flexible, hybrid and full-time roles"] },
       { label: "Email", value: emailContact ? [emailContact.value] : [] },
     ],
     interests: [
       "Web Development",
       "Mobile Applications",
       "Content Management Systems",
-      "API Integration",
+      "Workflow Efficiency",
       "Team Leadership",
       "Software Quality",
     ],
