@@ -5,7 +5,7 @@ export const skillsSection: SectionIntro = {
   id: "skills-heading",
   eyebrow: "Technical skills",
   title: "Programming Expertise and Toolkits",
-  lead: "Listed here are the tools and platforms connected to my project, coursework, and internship experiences.",
+  lead: "Here are the tools and platforms I have worked with in my projects and professional experience.",
 };
 
 export const skillsAudit: ContentAudit = {

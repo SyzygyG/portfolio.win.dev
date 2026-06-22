@@ -4,8 +4,8 @@ import type { CaseStudy, Project } from "@/types/project";
 export const projectsSection: SectionIntro = {
   id: "projects-heading",
   eyebrow: "Featured projects",
-  title: "Work worth showing.",
-  lead: "Selected projects built in production or shipped as open source. Click any project to explore the code or live demo.",
+  title: "Technical programming projects that I involved myself with.",
+  lead: "My projects showcase my skills both as a developer and a project manager. Click any project to explore the code or live demo.",
 };
 
 export const projects: Project[] = [
@@ -53,7 +53,7 @@ export const projects: Project[] = [
     title: "Hytec Power Inc. Virtual Tour",
     description:
       "Created a 3D virtual tour for Hytec Power Inc. using Google Model Viewer and Photo Sphere Viewer, with Laravel supporting the content management system behind the experience.",
-    stack: ["Google Model Viewer", "Photo Sphere Viewer", "Laravel", "Virtual Tour"],
+    stack: ["Google Model Viewer", "Photo Sphere Viewer", "Laravel", "Angular",  "Virtual Tour"],
     links: [
       {
         label: "Live demo",
