@@ -1,0 +1,3 @@
+# Any unmatched route returns the 404 page with a 404 status.
+# (Existing static assets and routes are always served first.)
+/* /404.html 404
