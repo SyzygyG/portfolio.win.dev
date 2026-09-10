@@ -32,7 +32,7 @@ $ogImage = '/images/og.png';
     <meta name="twitter:description" content="<?= e($page['description']) ?>" />
     <meta name="twitter:image" content="<?= e($site['url'] . $ogImage) ?>" />
 
-    <meta name="theme-color" content="#0c0d11" />
+    <meta name="theme-color" content="#fbf4e8" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
     <script type="application/ld+json">
@@ -59,8 +59,8 @@ $ogImage = '/images/og.png';
     }
     </script>
 
+    <link rel="preload" href="/fonts/bricolage-var.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/newsreader-var-italic.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/assets/main.css" />
 
     <script>document.documentElement.classList.replace('no-js', 'js');</script>

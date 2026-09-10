@@ -28,11 +28,19 @@ function icon(string $name, int $size = 16): string
         'document' => '<path d="M19.5 14.25v-2.63a3.38 3.38 0 0 0-3.38-3.37h-1.5a1.13 1.13 0 0 1-1.12-1.13V5.63A3.38 3.38 0 0 0 10.13 2.25H8.25m2.25 0H5.63c-.62 0-1.13.5-1.13 1.12v17.26c0 .62.5 1.12 1.12 1.12h12.76c.62 0 1.12-.5 1.12-1.12V11.25a9 9 0 0 0-9-9Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>',
         'close' => '<path d="M18 6 6 18M6 6l12 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>',
         'menu' => '<path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>',
+        'sparkle' => '<path d="M12 2.5 14 10 21.5 12 14 14 12 21.5 10 14 2.5 12 10 10Z" fill="currentColor"/>',
+        'bolt' => '<path d="M13.5 2 4 14h7l-1.5 8L19 10h-7Z" fill="currentColor"/>',
+        'arrow-doodle' => '<path d="M3 16C7 7 13 4 20 7m0 0-5 .5M20 7l-1 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>',
+        'squiggle' => '<path d="M0 8 Q 4 2 8 8 T 16 8 T 24 8 T 32 8 T 40 8 T 48 8 T 56 8 T 64 8 T 72 8 T 80 8 T 88 8 T 96 8 T 104 8 T 112 8 T 120 8" stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none"/>',
         default => '',
     };
 
     if ($svg === '') {
         return '';
+    }
+
+    if ($name === 'squiggle') {
+        return '<svg aria-hidden="true" viewBox="0 0 120 12" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">' . $svg . '</svg>';
     }
 
     return sprintf(

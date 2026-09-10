@@ -12,7 +12,10 @@
   },
   "devDependencies": {
     "@fontsource-variable/archivo": "^5.3.0",
+    "@fontsource-variable/bricolage-grotesque": "^5.3.0",
+    "@fontsource-variable/fraunces": "^5.3.0",
     "@fontsource-variable/newsreader": "^5.3.0",
+    "@fontsource-variable/shantell-sans": "^5.3.0",
     "@fontsource/ibm-plex-mono": "^5.3.0",
     "@tailwindcss/cli": "^4.3.3",
     "php-wasm": "0.0.9-alpha-32",

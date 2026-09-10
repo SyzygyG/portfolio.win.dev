@@ -11,6 +11,7 @@ $certs = require rootPath('data/certifications.php');
 
 $hero = $profile['hero'];
 $variants = ['default', 'rev', 'compact'];
+$tickerColors = ['c-yellow', 'c-pink', 'c-mint', 'c-sky', 'c-orange', 'c-teal'];
 
 ?>
 <!-- Hero -->
@@ -18,9 +19,13 @@ $variants = ['default', 'rev', 'compact'];
     <div class="container">
         <div class="grid grid-cols-12 gap-x-6 gap-y-12 lg:items-end">
             <div class="col-span-12 lg:col-span-8">
-                <p class="hero-kicker"><?= e($hero['eyebrow']) ?> · <?= e($site['location']) ?></p>
-                <h1 class="hero-title">Erwin Gamalong<br />builds <em><?= e($hero['leadEmphasis']) ?>.</em></h1>
-                <p class="hero-sub">Full-stack developer and project manager in Quezon City — from database to interface, and often the person keeping the team on track.</p>
+                <p class="hero-kicker"><span class="dot" aria-hidden="true"></span><?= e($hero['eyebrow']) ?> · <?= e($site['location']) ?></p>
+                <h1 class="hero-title">Hey, I'm Erwin.<br />
+                    I build <span class="hl">web systems</span>, <span class="hl hl--pink">internal tools</span>
+                    &amp; <span class="hl hl--mint squig-wrap"><span class="font-fancy">3D tours</span>
+                    <?= icon('squiggle') ?></span>.
+                </h1>
+                <p class="hero-sub">Full-stack developer and project manager — from database to interface, and often the person keeping the team on track.</p>
                 <div class="hero-actions">
                     <a class="btn btn--primary" href="/#work">
                         <?= e($hero['actions'][0]['label']) ?>
@@ -32,14 +37,20 @@ $variants = ['default', 'rev', 'compact'];
                         <?= e($hero['actions'][1]['label']) ?>
                     </a>
                 </div>
+                <div class="hero-badges">
+                    <span class="sticker sticker--mint sticker--tilt">open to work <?= icon('sparkle', 14) ?></span>
+                    <span class="sticker sticker--pink">full stack</span>
+                    <span class="sticker sticker--sky sticker--tilt-r">project manager</span>
+                </div>
             </div>
             <div class="col-span-12 sm:col-span-5 lg:col-span-3 lg:col-start-10">
-                <div class="portrait-frame">
+                <figure class="polaroid tape">
                     <img src="<?= e($profile['about']['portrait']['src']) ?>"
                          width="480" height="480"
                          alt="<?= e($profile['about']['portrait']['alt']) ?>" />
-                </div>
-                <p class="portrait-caption"><?= e($site['location']) ?></p>
+                    <figcaption>hi, that's me!</figcaption>
+                </figure>
+                <p class="hand-note"><?= icon('arrow-doodle', 30) ?> psst — <?= e($site['location']) ?></p>
             </div>
         </div>
 
@@ -61,24 +72,30 @@ $variants = ['default', 'rev', 'compact'];
                 <dd><a href="<?= e($site['linkedin']) ?>" rel="noopener noreferrer" target="_blank"><?= e($site['linkedinHandle']) ?></a></dd>
             </div>
         </dl>
-
-        <div class="ticker" aria-hidden="true">
-            <div class="ticker__track">
-                <?php foreach (array_merge($profile['coreStack'], $profile['coreStack']) as $item): ?>
-                    <span class="ticker__item"><?= e($item) ?></span>
-                <?php endforeach; ?>
-            </div>
-        </div>
     </div>
 </section>
+
+<!-- Tech marquee -->
+<div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+        <?php
+        $items = array_merge($profile['coreStack'], ['Full Stack', 'Project Manager', '3D Tours', 'CMS', 'Open to work']);
+        foreach (array_merge($items, $items) as $i => $item):
+            $c = $tickerColors[$i % count($tickerColors)];
+        ?>
+            <span class="marquee__item <?= $c ?>"><?= e($item) ?></span>
+        <?php endforeach; ?>
+    </div>
+</div>
 
 <!-- Work -->
 <section class="section" id="work">
     <div class="container">
         <?= partial('section-head', [
-            'index' => '01',
+            'index' => '01 · work',
             'title' => $projects['title'],
             'lead' => $projects['lead'],
+            'tone' => 'pink',
         ]) ?>
 
         <div class="work-list">
@@ -96,34 +113,31 @@ $variants = ['default', 'rev', 'compact'];
 <section class="section experience" id="experience">
     <div class="container">
         <?= partial('section-head', [
-            'index' => '02',
+            'index' => '02 · experience',
             'title' => $experience['title'],
             'lead' => $experience['lead'],
+            'tone' => 'mint',
         ]) ?>
 
-        <?php $xpIndex = 0; ?>
         <?php foreach ($experience['groups'] as $group): ?>
-            <div class="xp-group">
-                <p class="xp-label"><?= e($group['label']) ?></p>
-                <div class="xp-list">
-                    <?php foreach ($group['entries'] as $entry): ?>
-                        <?php $xpIndex++; ?>
-                        <article class="xp-item reveal">
-                            <div class="xp-num"><?= str_pad((string) $xpIndex, 2, '0', STR_PAD_LEFT) ?></div>
-                            <div class="xp-body">
-                                <h3 class="xp-role"><?= e($entry['role']) ?></h3>
-                                <p class="xp-org"><?= e($entry['organization']) ?> · <span class="xp-type"><?= e($entry['type']) ?></span></p>
-                                <p class="xp-desc"><?= e($entry['description']) ?></p>
-                                <ul class="xp-achievements">
-                                    <?php foreach ($entry['achievements'] as $achievement): ?>
-                                        <li><?= e($achievement) ?></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </div>
-                            <div class="xp-period"><?= e($entry['period']) ?></div>
-                        </article>
-                    <?php endforeach; ?>
-                </div>
+            <p class="xp-label"><?= e($group['label']) ?></p>
+            <div class="xp-list">
+                <?php foreach ($group['entries'] as $entry): ?>
+                    <article class="xp-item reveal">
+                        <div class="xp-topline">
+                            <span class="xp-period"><?= e($entry['period']) ?></span>
+                            <span class="xp-type"><?= e($entry['type']) ?></span>
+                        </div>
+                        <h3 class="xp-role"><?= e($entry['role']) ?></h3>
+                        <p class="xp-org"><?= e($entry['organization']) ?></p>
+                        <p class="xp-desc"><?= e($entry['description']) ?></p>
+                        <ul class="xp-achievements">
+                            <?php foreach ($entry['achievements'] as $achievement): ?>
+                                <li><?= e($achievement) ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </article>
+                <?php endforeach; ?>
             </div>
         <?php endforeach; ?>
     </div>
@@ -133,9 +147,10 @@ $variants = ['default', 'rev', 'compact'];
 <section class="section" id="about">
     <div class="container">
         <?= partial('section-head', [
-            'index' => '03',
+            'index' => '03 · about',
             'title' => 'About',
             'lead' => $profile['about']['title'],
+            'tone' => 'sky',
         ]) ?>
 
         <div class="grid grid-cols-12 gap-x-6 gap-y-12">
@@ -171,8 +186,12 @@ $variants = ['default', 'rev', 'compact'];
 
         <h3 class="subheading"><?= e($skills['title']) ?></h3>
         <div class="skill-grid">
-            <?php foreach ($skills['groups'] as $group): ?>
-                <div class="skill-group">
+            <?php
+            $tones = ['pink', 'mint', 'sky', 'yellow', 'orange', 'teal'];
+            foreach ($skills['groups'] as $i => $group):
+                $tone = $tones[$i % count($tones)];
+            ?>
+                <div class="skill-group skill-group--<?= $tone ?>">
                     <h4 class="skill-label"><?= e($group['label']) ?></h4>
                     <p class="skill-items"><?= e(implode(', ', $group['items'])) ?></p>
                 </div>
@@ -180,7 +199,7 @@ $variants = ['default', 'rev', 'compact'];
         </div>
 
         <dl class="learning">
-            <dt><?= e($skills['learning']['label']) ?></dt>
+            <dt>Currently learning →</dt>
             <dd><?= e(implode(' · ', $skills['learning']['items'])) ?></dd>
         </dl>
     </div>
@@ -190,9 +209,10 @@ $variants = ['default', 'rev', 'compact'];
 <section class="section" id="credentials">
     <div class="container">
         <?= partial('section-head', [
-            'index' => '04',
+            'index' => '04 · credentials',
             'title' => $certs['title'],
             'lead' => $certs['lead'],
+            'tone' => 'orange',
         ]) ?>
 
         <div class="cred-featured">
@@ -205,9 +225,13 @@ $variants = ['default', 'rev', 'compact'];
                              width="480" height="300" alt="<?= e($cert['alt']) ?>" />
                     </a>
                     <div class="cert-card__body">
-                        <p class="cert-card__issuer"><?= e($cert['issuer']) ?></p>
+                        <span class="cert-card__issuer"><?= e($cert['issuer']) ?></span>
                         <h3 class="cert-card__title"><?= e($cert['title']) ?></h3>
                         <p class="cert-card__date"><?= e($cert['date']) ?></p>
+                        <a class="cert-card__verify" href="<?= e($cert['href']) ?>"
+                           rel="noopener noreferrer" target="_blank">
+                            View certificate <?= icon('arrow-up-right', 13) ?>
+                        </a>
                     </div>
                 </article>
             <?php endforeach; ?>
@@ -232,7 +256,7 @@ $variants = ['default', 'rev', 'compact'];
         </div>
 
         <div class="resume-block">
-            <a class="resume-preview" href="<?= e($profile['resume']['download']['href']) ?>"
+            <a class="resume-preview tape" href="<?= e($profile['resume']['download']['href']) ?>"
                rel="noopener noreferrer" target="_blank"
                aria-label="Open the resume PDF">
                 <img src="<?= e($profile['resume']['preview']['src']) ?>" loading="lazy"
@@ -242,8 +266,7 @@ $variants = ['default', 'rev', 'compact'];
                 <h3 class="resume-title"><?= e($profile['resume']['title']) ?></h3>
                 <p class="resume-lead"><?= e($profile['resume']['lead']) ?></p>
                 <div class="resume-actions">
-                    <a class="btn btn--primary" href="<?= e($profile['resume']['download']['href']) ?>"
-                       download>
+                    <a class="btn btn--primary" href="<?= e($profile['resume']['download']['href']) ?>" download>
                         <?= icon('download', 15) ?>
                         <?= e($profile['resume']['download']['label']) ?>
                     </a>
@@ -263,7 +286,10 @@ $variants = ['default', 'rev', 'compact'];
         <h2 class="contact-title">Have a role, project, or opportunity in mind?</h2>
         <p class="contact-lead">Open to full-time, hybrid, and flexible roles. Email is the fastest way to reach me.</p>
 
-        <a class="contact-email" href="mailto:<?= e($site['email']) ?>"><?= e($site['email']) ?></a>
+        <a class="contact-email squig-wrap" href="mailto:<?= e($site['email']) ?>">
+            <?= e($site['email']) ?>
+            <?= icon('squiggle') ?>
+        </a>
 
         <ul class="contact-list">
             <li class="contact-item">

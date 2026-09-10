@@ -8,7 +8,7 @@ declare(strict_types=1);
 <footer class="site-footer">
     <div class="container footer-inner">
         <span>© <?= currentYear() ?> <?= e($site['name']) ?></span>
-        <span>Built with PHP &amp; Tailwind CSS</span>
+        <span>Made with <span class="made">PHP &amp; Tailwind CSS</span> ✦ no frameworks, no fuss</span>
         <nav class="footer-links" aria-label="Footer">
             <a href="<?= e($site['github']) ?>" rel="noopener noreferrer" target="_blank">GitHub</a>
             <a href="<?= e($site['linkedin']) ?>" rel="noopener noreferrer" target="_blank">LinkedIn</a>

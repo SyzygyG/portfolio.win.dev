@@ -12,9 +12,7 @@ $stack = implode(' · ', $project['stack']);
     <header class="case-hero">
         <div class="container">
             <p class="case-kicker">
-                Case study
-                <span class="slash">/</span>
-                <?= e($project['index']) ?>
+                case study <?= icon('sparkle', 12) ?> <?= e($project['index']) ?>
             </p>
             <h1 class="case-title"><?= e($cs['title']) ?></h1>
             <p class="case-subtitle"><?= e($cs['subtitle']) ?></p>
@@ -53,7 +51,7 @@ $stack = implode(' · ', $project['stack']);
             </div>
 
             <aside class="case-aside">
-                <div class="case-media">
+                <div class="case-media tape">
                     <img src="<?= e($project['media']['src']) ?>"
                          srcset="<?= e($project['media']['small']) ?> 800w, <?= e($project['media']['src']) ?> 1600w"
                          sizes="(max-width: 900px) 100vw, 30vw"

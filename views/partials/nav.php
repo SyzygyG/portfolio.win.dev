@@ -10,7 +10,7 @@ $workActive = !$onHome;
 ?>
 <header class="site-nav">
     <div class="container nav-inner">
-        <a class="nav-logo" href="/"><?= e($site['shortName']) ?><span class="dot">.</span></a>
+        <a class="nav-logo" href="/"><?= e($site['shortName']) ?><span class="logo-dot" aria-hidden="true"></span></a>
 
         <nav class="nav-links" aria-label="Primary">
             <?php foreach ($site['nav'] as $link): ?>
@@ -30,7 +30,7 @@ $workActive = !$onHome;
 
     <div class="mobile-menu" id="mobile-menu">
         <div class="mobile-menu__bar">
-            <a class="nav-logo" href="/"><?= e($site['shortName']) ?><span class="dot">.</span></a>
+            <a class="nav-logo" href="/"><?= e($site['shortName']) ?><span class="logo-dot" aria-hidden="true"></span></a>
             <button class="mobile-menu__close" type="button" aria-label="Close menu">
                 <?= icon('close', 20) ?>
             </button>

@@ -11,9 +11,6 @@ $variantClass = match ($variant) {
     default => 'feature',
 };
 
-$stack = implode(' · ', $project['stack']);
-
-// Derive a short display URL for the browser-window chrome.
 $firstExternal = null;
 foreach ($project['links'] as $link) {
     if ($link['kind'] === 'external') {
@@ -28,21 +25,23 @@ $displayUrl = $firstExternal
 ?>
 <article class="<?= $variantClass ?> reveal">
     <div class="feature-media">
-        <a class="media-window" href="/projects/<?= e($project['slug']) ?>/"
+        <a class="shot tape" href="/projects/<?= e($project['slug']) ?>/"
            aria-label="<?= e($project['title'] . ' — view case study') ?>">
-            <div class="media-window__bar" aria-hidden="true">
-                <span class="media-window__dot"></span>
-                <span class="media-window__dot"></span>
-                <span class="media-window__dot"></span>
-                <span class="media-window__url"><?= e($displayUrl) ?></span>
-            </div>
-            <img src="<?= e($project['media']['src']) ?>"
-                 srcset="<?= e($project['media']['small']) ?> 800w, <?= e($project['media']['src']) ?> 1600w"
-                 sizes="(max-width: 900px) 100vw, 55vw"
-                 width="<?= (int) $project['media']['width'] ?>"
-                 height="<?= (int) $project['media']['height'] ?>"
-                 alt="<?= e($project['media']['alt']) ?>"
-                 loading="<?= $variant === 'rev' ? 'lazy' : 'eager' ?>" />
+            <span class="shot__bar" aria-hidden="true">
+                <span class="shot__dot shot__dot--r"></span>
+                <span class="shot__dot shot__dot--y"></span>
+                <span class="shot__dot shot__dot--g"></span>
+                <span class="shot__url"><?= e($displayUrl) ?></span>
+            </span>
+            <span class="shot__frame">
+                <img src="<?= e($project['media']['src']) ?>"
+                     srcset="<?= e($project['media']['small']) ?> 800w, <?= e($project['media']['src']) ?> 1600w"
+                     sizes="(max-width: 900px) 100vw, 55vw"
+                     width="<?= (int) $project['media']['width'] ?>"
+                     height="<?= (int) $project['media']['height'] ?>"
+                     alt="<?= e($project['media']['alt']) ?>"
+                     loading="<?= $variant === 'rev' ? 'lazy' : 'eager' ?>" />
+            </span>
         </a>
     </div>
     <div class="feature-body">
@@ -53,16 +52,12 @@ $displayUrl = $firstExternal
         </h3>
         <p class="feature-desc"><?= e($project['description'][0]) ?></p>
 
-        <dl class="feature-meta">
-            <div class="meta-row">
-                <dt>Stack</dt>
-                <dd><?= e($stack) ?></dd>
-            </div>
-            <div class="meta-row">
-                <dt>Year</dt>
-                <dd><?= e($project['year']) ?></dd>
-            </div>
-        </dl>
+        <div class="feature-tags">
+            <?php foreach ($project['stack'] as $item): ?>
+                <span class="tag"><?= e($item) ?></span>
+            <?php endforeach; ?>
+            <span class="tag"><?= e($project['year']) ?></span>
+        </div>
 
         <div class="feature-links">
             <?php foreach ($project['links'] as $link): ?>
