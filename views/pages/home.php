@@ -12,6 +12,7 @@ $certs = require rootPath('data/certifications.php');
 $hero = $profile['hero'];
 $variants = ['default', 'rev', 'compact'];
 $tickerColors = ['c-yellow', 'c-pink', 'c-mint', 'c-sky', 'c-orange', 'c-teal'];
+$splashes = ['splash--yellow', 'splash--mint', 'splash--sky'];
 
 ?>
 <!-- Hero -->
@@ -98,13 +99,21 @@ $tickerColors = ['c-yellow', 'c-pink', 'c-mint', 'c-sky', 'c-orange', 'c-teal'];
             'tone' => 'pink',
         ]) ?>
 
-        <div class="work-list">
+        <div class="work-flow">
+            <span class="work-node" aria-hidden="true">✦</span>
             <?php foreach ($projects['items'] as $i => $project): ?>
                 <?= partial('project-feature', [
                     'project' => $project,
                     'variant' => $variants[$i] ?? 'default',
+                    'splash' => $splashes[$i] ?? 'splash--yellow',
                 ]) ?>
             <?php endforeach; ?>
+        </div>
+
+        <div class="work-cta">
+            <a class="btn btn--accent" href="<?= e($site['github']) ?>" rel="noopener noreferrer" target="_blank">
+                More on GitHub <?= icon('github', 16) ?>
+            </a>
         </div>
     </div>
 </section>
@@ -124,27 +133,31 @@ $tickerColors = ['c-yellow', 'c-pink', 'c-mint', 'c-sky', 'c-orange', 'c-teal'];
             <div class="xp-list">
                 <?php foreach ($group['entries'] as $entry): ?>
                     <article class="xp-item reveal">
-                        <div class="xp-topline">
-                            <span class="xp-period"><?= e($entry['period']) ?></span>
-                            <span class="xp-type"><?= e($entry['type']) ?></span>
+                        <div class="xp-card">
+                            <div class="xp-meta">
+                                <span class="xp-pill xp-pill--period"><?= e($entry['period']) ?></span>
+                                <span class="xp-pill xp-pill--type"><?= e($entry['type']) ?></span>
+                                <span class="xp-pill xp-pill--role"><?= e($entry['organization']) ?></span>
+                            </div>
+                            <h3 class="xp-role"><?= e($entry['role']) ?></h3>
+                            <p class="xp-desc"><?= e($entry['description']) ?></p>
+                            <ul class="xp-achievements">
+                                <?php foreach ($entry['achievements'] as $achievement): ?>
+                                    <li><?= e($achievement) ?></li>
+                                <?php endforeach; ?>
+                            </ul>
                         </div>
-                        <h3 class="xp-role"><?= e($entry['role']) ?></h3>
-                        <p class="xp-org"><?= e($entry['organization']) ?></p>
-                        <p class="xp-desc"><?= e($entry['description']) ?></p>
-                        <ul class="xp-achievements">
-                            <?php foreach ($entry['achievements'] as $achievement): ?>
-                                <li><?= e($achievement) ?></li>
-                            <?php endforeach; ?>
-                        </ul>
                     </article>
                 <?php endforeach; ?>
             </div>
         <?php endforeach; ?>
+
+        <p class="xp-fun"><?= icon('sparkle', 18) ?> internships, projects &amp; leadership — all of it real work</p>
     </div>
 </section>
 
 <!-- About + capabilities -->
-<section class="section" id="about">
+<section class="section about-band" id="about">
     <div class="container">
         <?= partial('section-head', [
             'index' => '03 · about',
@@ -153,18 +166,23 @@ $tickerColors = ['c-yellow', 'c-pink', 'c-mint', 'c-sky', 'c-orange', 'c-teal'];
             'tone' => 'sky',
         ]) ?>
 
-        <div class="grid grid-cols-12 gap-x-6 gap-y-12">
-            <div class="col-span-12 lg:col-span-5 about-bio">
-                <?php foreach ($profile['about']['paragraphs'] as $paragraph): ?>
-                    <p><?= e($paragraph) ?></p>
-                <?php endforeach; ?>
-                <?php if (!empty($profile['about']['quote'])): ?>
-                    <blockquote class="pull-quote">
-                        <p><?= e($profile['about']['quote']) ?></p>
-                    </blockquote>
-                <?php endif; ?>
+        <div class="grid grid-cols-12 gap-x-6 gap-y-12 lg:items-start">
+            <div class="col-span-12 lg:col-span-6">
+                <p class="statement">
+                    <?php foreach ($profile['about']['statement'] as $segment): ?>
+                        <?php if (!empty($segment['hl'])): ?>
+                            <span class="hl hl--<?= e($segment['hl']) ?>"><?= e($segment['text']) ?></span>
+                        <?php else: ?>
+                            <?= e($segment['text']) ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </p>
+                <p class="about-note">
+                    <span class="font-hand">how I work</span> — Agile teams, clear communication,
+                    and trusting the people in the room.
+                </p>
             </div>
-            <div class="col-span-12 lg:col-span-5 lg:col-start-7">
+            <div class="col-span-12 lg:col-span-5 lg:col-start-8">
                 <dl class="fact-list">
                     <?php foreach ($profile['about']['facts'] as $fact): ?>
                         <div class="fact-row">
@@ -173,7 +191,6 @@ $tickerColors = ['c-yellow', 'c-pink', 'c-mint', 'c-sky', 'c-orange', 'c-teal'];
                         </div>
                     <?php endforeach; ?>
                 </dl>
-
                 <dl class="education">
                     <dt>Education</dt>
                     <dd>
@@ -184,6 +201,26 @@ $tickerColors = ['c-yellow', 'c-pink', 'c-mint', 'c-sky', 'c-orange', 'c-teal'];
             </div>
         </div>
 
+        <div class="approach">
+            <?php
+            $approachTones = ['yellow', 'pink', 'mint'];
+            foreach ($profile['about']['approach'] as $i => $item):
+                $tone = $approachTones[$i % count($approachTones)];
+            ?>
+                <div class="approach-card approach-card--<?= $tone ?>">
+                    <span class="approach-card__num"><?= str_pad((string) ($i + 1), 2, '0', STR_PAD_LEFT) ?></span>
+                    <h3><?= e($item['title']) ?></h3>
+                    <p><?= e($item['text']) ?></p>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+        <div class="interests" aria-label="Professional interests">
+            <?php foreach ($profile['about']['interests'] as $interest): ?>
+                <span class="interest-pill"><?= e($interest) ?></span>
+            <?php endforeach; ?>
+        </div>
+
         <h3 class="subheading"><?= e($skills['title']) ?></h3>
         <div class="skill-grid">
             <?php
@@ -192,7 +229,7 @@ $tickerColors = ['c-yellow', 'c-pink', 'c-mint', 'c-sky', 'c-orange', 'c-teal'];
                 $tone = $tones[$i % count($tones)];
             ?>
                 <div class="skill-group skill-group--<?= $tone ?>">
-                    <h4 class="skill-label"><?= e($group['label']) ?></h4>
+                    <h4 class="skill-label"><?= icon('sparkle', 15) ?> <?= e($group['label']) ?></h4>
                     <p class="skill-items"><?= e(implode(', ', $group['items'])) ?></p>
                 </div>
             <?php endforeach; ?>

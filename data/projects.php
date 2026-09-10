@@ -19,6 +19,7 @@ return [
             'title' => 'Hytec Power Inc. Virtual Tour',
             'role' => 'Full Stack Developer — 3D Virtual Tour & CMS',
             'year' => '2026',
+            'caption' => 'Walk through Hytec\'s facilities in 3D, straight from the browser.',
             'summary' => 'An interactive 3D tour of Hytec Power Inc.\'s facilities, with a Laravel CMS behind it.',
             'description' => [
                 'A 3D virtual tour of Hytec Power Inc. built with Google Model Viewer and Photo Sphere Viewer, presenting an interactive classroom environment. A Laravel content management system sits behind the experience so tour content stays maintainable.',
@@ -93,6 +94,7 @@ return [
             'title' => 'VIDERE',
             'role' => 'Project Manager — Digital Art Platform',
             'year' => '2025',
+            'caption' => 'Create, share, sell, and collaborate — one art platform.',
             'summary' => 'A digital art platform for creating, sharing, selling, and collaborating on artwork.',
             'description' => [
                 'A digital art platform built across a React/Vite frontend, a Node.js/Express API, and a Python/Flask ML service — bringing marketplace flows, commissions, collaborative canvases, and recommendations into one ecosystem.',
@@ -189,6 +191,7 @@ return [
             'title' => 'QCU Journals',
             'role' => 'Full Stack Developer — Academic Publishing Platform',
             'year' => '2025',
+            'caption' => 'Peer-reviewed journals, from submission to indexing.',
             'summary' => 'A scholarly journal platform for Quezon City University, built on PKP Open Journal Systems.',
             'description' => [
                 'The publishing platform for Quezon City University\'s peer-reviewed journals, built on PKP Open Journal Systems to streamline submission, peer review, editing, and indexing workflows.',
