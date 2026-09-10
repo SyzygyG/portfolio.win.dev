@@ -10,12 +10,6 @@ $skills = require rootPath('data/skills.php');
 $certs = require rootPath('data/certifications.php');
 
 $hero = $profile['hero'];
-$leadHtml = str_replace(
-    e($hero['leadEmphasis']),
-    '<em>' . e($hero['leadEmphasis']) . '</em>',
-    e($hero['lead']),
-);
-
 $variants = ['default', 'rev', 'compact'];
 
 ?>
@@ -24,9 +18,9 @@ $variants = ['default', 'rev', 'compact'];
     <div class="container">
         <div class="grid grid-cols-12 gap-x-6 gap-y-12 lg:items-end">
             <div class="col-span-12 lg:col-span-8">
-                <p class="hero-eyebrow"><?= e($hero['eyebrow']) ?> · <?= e($site['location']) ?></p>
-                <h1 class="hero-title">Erwin<br />Gamalong</h1>
-                <p class="hero-lead"><?= $leadHtml ?></p>
+                <p class="hero-kicker"><?= e($hero['eyebrow']) ?> · <?= e($site['location']) ?></p>
+                <h1 class="hero-title">Erwin Gamalong<br />builds <em><?= e($hero['leadEmphasis']) ?>.</em></h1>
+                <p class="hero-sub">Full-stack developer and project manager in Quezon City — from database to interface, and often the person keeping the team on track.</p>
                 <div class="hero-actions">
                     <a class="btn btn--primary" href="/#work">
                         <?= e($hero['actions'][0]['label']) ?>
@@ -67,6 +61,14 @@ $variants = ['default', 'rev', 'compact'];
                 <dd><a href="<?= e($site['linkedin']) ?>" rel="noopener noreferrer" target="_blank"><?= e($site['linkedinHandle']) ?></a></dd>
             </div>
         </dl>
+
+        <div class="ticker" aria-hidden="true">
+            <div class="ticker__track">
+                <?php foreach (array_merge($profile['coreStack'], $profile['coreStack']) as $item): ?>
+                    <span class="ticker__item"><?= e($item) ?></span>
+                <?php endforeach; ?>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -99,19 +101,18 @@ $variants = ['default', 'rev', 'compact'];
             'lead' => $experience['lead'],
         ]) ?>
 
+        <?php $xpIndex = 0; ?>
         <?php foreach ($experience['groups'] as $group): ?>
             <div class="xp-group">
                 <p class="xp-label"><?= e($group['label']) ?></p>
                 <div class="xp-list">
                     <?php foreach ($group['entries'] as $entry): ?>
+                        <?php $xpIndex++; ?>
                         <article class="xp-item reveal">
-                            <div class="xp-meta">
-                                <p class="xp-period"><?= e($entry['period']) ?></p>
-                                <p class="xp-type"><?= e($entry['type']) ?></p>
-                            </div>
-                            <div>
+                            <div class="xp-num"><?= str_pad((string) $xpIndex, 2, '0', STR_PAD_LEFT) ?></div>
+                            <div class="xp-body">
                                 <h3 class="xp-role"><?= e($entry['role']) ?></h3>
-                                <p class="xp-org"><?= e($entry['organization']) ?></p>
+                                <p class="xp-org"><?= e($entry['organization']) ?> · <span class="xp-type"><?= e($entry['type']) ?></span></p>
                                 <p class="xp-desc"><?= e($entry['description']) ?></p>
                                 <ul class="xp-achievements">
                                     <?php foreach ($entry['achievements'] as $achievement): ?>
@@ -119,6 +120,7 @@ $variants = ['default', 'rev', 'compact'];
                                     <?php endforeach; ?>
                                 </ul>
                             </div>
+                            <div class="xp-period"><?= e($entry['period']) ?></div>
                         </article>
                     <?php endforeach; ?>
                 </div>
@@ -259,24 +261,23 @@ $variants = ['default', 'rev', 'compact'];
 <section class="contact" id="contact">
     <div class="container">
         <h2 class="contact-title">Have a role, project, or opportunity in mind?</h2>
-        <p class="contact-lead">I'm open to full-time, hybrid, and flexible roles. The fastest way to reach me is email.</p>
+        <p class="contact-lead">Open to full-time, hybrid, and flexible roles. Email is the fastest way to reach me.</p>
+
+        <a class="contact-email" href="mailto:<?= e($site['email']) ?>"><?= e($site['email']) ?></a>
 
         <ul class="contact-list">
-            <?php foreach ($site['contact'] as $link): ?>
-                <li class="contact-item">
-                    <span class="contact-icon"><?= icon($link['icon'], 18) ?></span>
-                    <span class="contact-label"><?= e($link['label']) ?></span>
-                    <span class="contact-value">
-                        <a href="<?= e($link['href']) ?>"
-                           <?= !empty($link['external']) ? 'rel="noopener noreferrer" target="_blank"' : '' ?>>
-                            <?= e($link['value']) ?>
-                        </a>
-                        <?php if ($link['icon'] === 'mail'): ?>
-                            <button class="copy-btn" type="button" data-copy="<?= e($link['value']) ?>">Copy</button>
-                        <?php endif; ?>
-                    </span>
-                </li>
-            <?php endforeach; ?>
+            <li class="contact-item">
+                <span class="icon"><?= icon('github', 18) ?></span>
+                <a href="<?= e($site['github']) ?>" rel="noopener noreferrer" target="_blank">GitHub</a>
+            </li>
+            <li class="contact-item">
+                <span class="icon"><?= icon('linkedin', 18) ?></span>
+                <a href="<?= e($site['linkedin']) ?>" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+            </li>
+            <li class="contact-item">
+                <span class="icon"><?= icon('phone', 18) ?></span>
+                <a href="<?= e($site['phoneHref']) ?>"><?= e($site['phone']) ?></a>
+            </li>
         </ul>
     </div>
 </section>

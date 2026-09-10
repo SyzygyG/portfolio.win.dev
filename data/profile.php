@@ -30,6 +30,11 @@ return [
         ],
     ],
 
+    'coreStack' => [
+        'React', 'PHP', 'Python', '.NET', 'Flutter', 'Node.js',
+        'Firebase', 'Oracle Database', 'MongoDB', 'MySQL', 'Tailwind CSS',
+    ],
+
     'about' => [
         'heading' => 'About',
         'title' => 'A developer who ships, and a manager who keeps the room aligned.',

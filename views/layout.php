@@ -32,8 +32,32 @@ $ogImage = '/images/og.png';
     <meta name="twitter:description" content="<?= e($page['description']) ?>" />
     <meta name="twitter:image" content="<?= e($site['url'] . $ogImage) ?>" />
 
-    <meta name="theme-color" content="#fafaf7" />
+    <meta name="theme-color" content="#0c0d11" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "<?= e($site['name']) ?>",
+      "alternateName": "Erwin Gamalong",
+      "url": "<?= e($site['url']) ?>/",
+      "image": "<?= e($site['url']) ?>/images/erwin-headshot.webp",
+      "jobTitle": "<?= e($site['role']) ?>",
+      "email": "mailto:<?= e($site['email']) ?>",
+      "telephone": "<?= e($site['phone']) ?>",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Quezon City",
+        "addressRegion": "Metro Manila",
+        "addressCountry": "PH"
+      },
+      "sameAs": [
+        "<?= e($site['github']) ?>",
+        "<?= e($site['linkedin']) ?>"
+      ]
+    }
+    </script>
 
     <link rel="preload" href="/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/newsreader-var-italic.woff2" as="font" type="font/woff2" crossorigin />

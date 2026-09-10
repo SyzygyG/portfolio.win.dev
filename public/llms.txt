@@ -1,0 +1,44 @@
+# Erwin Gamalong — Full Stack Developer & Project Manager
+
+> Portfolio for Erwin Gamaliel Gamalong, a full stack developer and project
+> manager in Quezon City, Philippines. Open to full-time, hybrid, and flexible
+> roles.
+
+## Contact
+
+- Email: gamalonggamalielerwin@gmail.com
+- LinkedIn: https://linkedin.com/in/gamalongerwin/
+- GitHub: https://github.com/SyzygyG
+- Resume (PDF): https://portfolio.erwin.dev/documents/resume.pdf
+
+## Pages
+
+- Home: https://portfolio.erwin.dev/
+- Hytec Power Inc. Virtual Tour (case study): https://portfolio.erwin.dev/projects/hytec-power-virtual-tour/
+- VIDERE — Digital Art Platform (case study): https://portfolio.erwin.dev/projects/videre/
+- QCU Journals — Academic Publishing Platform (case study): https://portfolio.erwin.dev/projects/qcu-journals/
+
+## Work
+
+- **Hytec Power Inc. Virtual Tour** — interactive 3D tour built with Google Model
+  Viewer and Photo Sphere Viewer, backed by a Laravel CMS. Live at
+  https://virtual-tour.e-hytec.dev/tour
+- **VIDERE** — digital art platform for creating, sharing, selling, and
+  collaborating on artwork. React/Vite frontend, Node.js/Express API, and a
+  Python/Flask ML service (MobileNetV2, collaborative filtering, FAISS,
+  K-Means). Live at https://viderevision.vercel.app/ · GitHub:
+  https://github.com/SyzygyG/Videre
+- **QCU Journals** — scholarly, peer-reviewed journal platform for Quezon City
+  University, built on PKP Open Journal Systems. Live at https://qcujournals.com/
+
+## Experience
+
+- Full Stack Developer — Virtual Tour & CMS, Hytec Power Inc. (2026, internship)
+- Full Stack Developer — Website & CMS, Hytec Power Inc. (2026, internship)
+- Full Stack Developer — QCU Journals, Quezon City University (2025)
+- Grievance Committee — Council of Leader, QCU Supreme Student Council (2024–present)
+- Membership Committee — Council of Leader, QCU Supreme Student Council (2023–2024)
+
+## Education
+
+- B.S. Information Technology, Quezon City University (graduating June 2026)

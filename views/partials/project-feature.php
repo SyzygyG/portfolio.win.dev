@@ -13,11 +13,29 @@ $variantClass = match ($variant) {
 
 $stack = implode(' · ', $project['stack']);
 
+// Derive a short display URL for the browser-window chrome.
+$firstExternal = null;
+foreach ($project['links'] as $link) {
+    if ($link['kind'] === 'external') {
+        $firstExternal = $link['href'];
+        break;
+    }
+}
+$displayUrl = $firstExternal
+    ? preg_replace('#^https?://#', '', $firstExternal)
+    : 'portfolio.erwin.dev/projects/' . $project['slug'];
+
 ?>
 <article class="<?= $variantClass ?> reveal">
     <div class="feature-media">
-        <a class="feature-img" href="<?= e($project['caseStudy'] ? '/projects/' . $project['slug'] . '/' : ($project['links'][0]['href'] ?? '#')) ?>"
+        <a class="media-window" href="/projects/<?= e($project['slug']) ?>/"
            aria-label="<?= e($project['title'] . ' — view case study') ?>">
+            <div class="media-window__bar" aria-hidden="true">
+                <span class="media-window__dot"></span>
+                <span class="media-window__dot"></span>
+                <span class="media-window__dot"></span>
+                <span class="media-window__url"><?= e($displayUrl) ?></span>
+            </div>
             <img src="<?= e($project['media']['src']) ?>"
                  srcset="<?= e($project['media']['small']) ?> 800w, <?= e($project['media']['src']) ?> 1600w"
                  sizes="(max-width: 900px) 100vw, 55vw"
