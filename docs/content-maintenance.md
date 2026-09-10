@@ -1,34 +1,48 @@
 # Content Maintenance Guide
 
-This repo is easiest to maintain when content edits stay in `src/data/` and components stay presentational.
+Content edits stay in `data/`; views stay presentational. No PHP framework is
+involved — each data file simply returns an array.
 
 ## Single Source of Truth
 
-- `src/data/profile.ts`: owner identity, hero/about/resume content, learning bar, and profile placeholders
-- `src/data/navigation.ts`: primary navigation labels and anchors
-- `src/data/skills.ts`: skills section intro, grouped skills, and the current audit note
-- `src/data/projects.ts`: projects section intro, project cards, case study copy, and media placeholders
-- `src/data/experience.ts`: experience section intro and experience entries
-- `src/data/certifications.ts`: certifications section intro and credential entries
-- `src/data/socials.ts`: contact section intro, contact links, and footer copy
+- `data/site.php` — name, role, location, contact/social links, navigation, resume.
+- `data/profile.php` — hero, about, education, resume copy.
+- `data/projects.php` — work section intro, three projects, and their case studies.
+- `data/experience.php` — experience intro and entries grouped by Engineering /
+  Leadership & community.
+- `data/skills.php` — capabilities intro, six skill groups, currently learning.
+- `data/certifications.php` — featured credentials + the Alibaba Cloud series.
 
 ## Section Ownership
 
-- `Hero`, `About`, `Resume`: read from `profile.ts`
-- `Skills`: reads from `skills.ts`
-- `Projects` and `CaseStudy`: read from `projects.ts`
-- `Experience`: reads from `experience.ts`
-- `Certifications`: read from `certifications.ts`
-- `Contact` and `Footer`: read from `socials.ts`
-- `Navbar`: reads from `navigation.ts`
+- `views/pages/home.php` renders hero, work, experience, about/capabilities,
+  credentials/resume, and contact from the data files above.
+- `views/pages/project.php` renders a case study for one project
+  (driven by `data/projects.php`).
+- `views/layout.php` + `views/partials/` render the shared shell (head, nav,
+  footer, section headers, project features).
 
-## Placeholder Workflow
+## How to Add / Edit
 
-- Keep placeholders explicit in data with `kind: "placeholder"` and a `todo` string that starts with `TODO: replace`.
-- When the real asset is ready, swap the data entry to `kind: "image"` and provide the asset path plus alt text.
-- Store static assets in `public/` and reference them with static-export-safe relative paths such as `images/...` or `documents/...`.
+- **Add a project**: append to `projects.items` in `data/projects.php` with a
+  `slug`, `index`, `title`, `role`, `year`, `summary`, `description`, `stack`,
+  `links`, `media`, and a `caseStudy` block. Register a route in
+  `lib/pages.php`. Place the screenshot in `public/images/projects/`.
+- **Add an experience entry**: append to the relevant group in
+  `data/experience.php`.
+- **Add a certification**: append to `featured` or `series.items` in
+  `data/certifications.php`, and add the certificate image to
+  `public/images/certifications/`.
 
-## Review Notes
+## Asset Conventions
 
-- `src/data/skills.ts` currently carries an audit note because the inventory may include entries that need owner confirmation.
-- Treat that note as a reminder to verify the list against the resume and project history before considering it final.
+- Static assets live in `public/` and are copied verbatim into `dist/` at build.
+- Images are optimized WebP with a `-800.webp` (or `-thumb.webp`) variant where
+  responsive sizing is used. Reference them with root-relative paths (`/images/...`).
+- The resume is `public/documents/resume.pdf`.
+
+## Rebuild
+
+```bash
+corepack pnpm build   # Tailwind CSS + PHP render → dist/
+```

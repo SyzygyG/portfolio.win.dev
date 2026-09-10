@@ -2,68 +2,88 @@
 
 ## Project Context
 
-This is a professional IT portfolio website targeting recruiters, hiring managers, and freelance clients. It is built with **Next.js 15 + React 19 + TypeScript** using the App Router and configured for **static export**.
+This is a professional portfolio website for **Erwin Gamaliel Gamalong**, a full
+stack developer & project manager, targeting recruiters, hiring managers, and
+clients. It is an **editorial engineering portfolio** built with **PHP +
+Tailwind CSS**, rendered to static HTML.
 
 **Stack:**
-- Framework: Next.js 15 (App Router, static export)
-- Language: TypeScript (strict)
-- Runtime: React 19
-- Package manager: pnpm via corepack
-- Styling: global CSS with custom properties in `src/styles/globals.css`
+- Language: PHP 8.3 (templates + data + a small static builder — no framework)
+- Styling: Tailwind CSS v4 (CSS-first `@theme` tokens in `src/css/main.css`)
+- Build: `scripts/build.mjs` (Tailwind CLI + PHP-via-wasm) → `dist/`
+- Deployment: static hosting (Cloudflare Pages), output directory `dist/`
+- Client JS: one small vanilla file, `src/js/main.js` (~3 KB, no framework)
 
 **Project structure:**
-src/
-├── app/              # Next.js App Router pages and layout
-├── components/       # Shared UI, layout, and section components
-├── data/             # All portfolio content (projects, experience, skills, etc.)
-├── styles/           # globals.css — design tokens and base styles
-└── types/            # TypeScript type definitions
+```
+bin/build.php         # renders pages → dist/ (pure PHP)
+data/                 # portfolio content (single source of truth)
+lib/                  # pure helpers (html, view, dates, pages registry)
+src/css/main.css      # Tailwind v4 tokens + component styles
+src/js/main.js        # mobile menu, copy button, scroll reveal
+views/                # layout.php + partials/ + pages/
+public/               # optimized images, resume.pdf, fonts, favicon, robots, sitemap
+scripts/build.mjs     # CI runner (Tailwind + PHP-via-wasm)
+scripts/serve.mjs     # local static preview
+```
 
 **Design system at a glance:**
-- Palette: `#0F1117` ink, `#F9F8F6` surface, `#2563EB` accent (blue)
-- Fonts: DM Serif Display (headings), DM Sans (body), DM Mono (labels/code)
-- No glassmorphism, no gradient abuse, no typing effects, no particle backgrounds
-- Editorial aesthetic — left-aligned, structured, magazine-like section rhythm
-
-**Deployment target:** Static export via Next.js (`output: 'export'`)
+- Palette: paper `#FAFAF7`, ink `#17191F`, body `#3C3F46`, accent blue `#2050C8`,
+  dark `#12141B` (contact/footer)
+- Fonts (self-hosted): Archivo (grotesk, headings + UI + body), Newsreader italic
+  (occasional emphasis only), IBM Plex Mono (technical metadata)
+- Editorial, left-aligned, 12-column grid, max width 1200px, hairline rules
+  instead of cards/shadows. No glassmorphism, no gradients, no fake counters.
 
 ## Confirmation Behavior
 
-- Ask before any change that touches the visual identity: new color tokens, new fonts, new layout patterns, or structural component changes.
-- Ask before replacing or removing existing portfolio content in `src/data/` — these are real personal entries.
-- Ask before adding new dependencies, changing Next.js config, or making architectural decisions with meaningful tradeoffs.
-- Keep confirmation requests short. Prefer a recommended option plus 1–3 concrete alternatives over open-ended questions.
-- Do not ask for confirmation on clearly scoped, low-risk tasks: fixing a broken link, correcting a typo, adding a missing ARIA label, or updating a data value in `src/data/`.
+- Ask before replacing or removing factual content in `data/` — these are real
+  personal entries (projects, experience, certifications, contact details).
+- Ask before changing the visual identity (colors, fonts, layout patterns).
+- Ask before adding dependencies or changing the build/deployment setup.
+- Keep confirmation requests short: a recommended option plus 1–3 alternatives.
 
 ## Programming Direction
 
-- **Content belongs in `src/data/`, never hardcoded in components.** If a value is specific to the portfolio owner, it goes in the data layer.
-- **Reuse components; do not duplicate UI.** Before building a new component, check `src/components/` for an existing one that fits or can be extended.
-- **Follow the existing section anatomy.** New sections use: eyebrow label → section title → section lead → content.
-- **Preserve static export compatibility.** No server-side runtime features that break `output: 'export'`.
-- **TypeScript is strict.** New data shapes go in `src/types/`. Do not use `any`. Props must be typed.
-- **CSS changes use existing custom property tokens** from `globals.css`. Do not hardcode hex values inline or in component styles.
-- **JavaScript/React should stay purposeful.** Prefer server components unless interactivity is required.
+- **Content belongs in `data/`, never hardcoded in views.** Portfolio facts live
+  in PHP files that return arrays; views only render.
+- **Views are templates.** Use the existing partials (`partial()`) and the
+  `icon()` helper instead of duplicating markup.
+- **Reuse component classes in `src/css/main.css`.** Don't invent one-off styles
+  or sprinkle arbitrary Tailwind values.
+- **Keep PHP plain.** No framework, no database, no Composer packages, no
+  server-side runtime. The site must render to static HTML with `php bin/build.php`.
+- **Keep client JS minimal and progressive.** Interactivity only where required
+  (mobile menu, copy button, reveal). The site must remain fully readable with
+  JavaScript disabled.
 
 ## Content & Customization Rules
 
-- All portfolio content lives in `src/data/`. This is the single source of truth.
-- Placeholder content must be clearly marked with `TODO: replace` comments or `todo` strings so the owner knows what needs updating.
-- Never remove a section or data entry without confirming with the user.
-- When adding a new project, experience entry, or certification, extend the existing data file and reuse the existing component.
+- All portfolio content lives in `data/*.php` (single source of truth):
+  `site.php`, `profile.php`, `projects.php`, `experience.php`, `skills.php`,
+  `certifications.php`.
+- Adding a project/role/certification means extending the relevant data file and
+  reusing the existing views — no component changes required in most cases.
+- Placeholder content must be clearly marked with `TODO: replace` comments.
 
 ## Workflow Expectations
 
-- **Use `main` only for this repository.** Do not create feature branches, worktrees, or temporary publish branches unless the user explicitly asks for them.
-- **When making commits or pushing changes, commit directly on `main` and push `main` to `origin`.**
-- After any meaningful change, verify with:
-
-```bash
-corepack pnpm lint
-corepack pnpm build
-```
-
-- For accessibility changes, validate semantic HTML, keyboard navigation, ARIA labels, and color contrast.
+- **Use `main` only.** Do not create feature branches or worktrees unless the
+  user explicitly asks.
+- Verify after meaningful changes:
+  ```bash
+  corepack pnpm install   # first time only
+  corepack pnpm build     # Tailwind + PHP render → dist/
+  ```
+- For accessibility changes, validate semantic HTML, keyboard navigation, ARIA,
+  focus states, and color contrast.
 - For layout changes, verify behavior at mobile, tablet, and desktop breakpoints.
-- Before shipping a visual change, avoid glassmorphism, excessive gradients, large animations, fake counters, typing effects, and visual clutter.
-- For deployment readiness: confirm `output: 'export'` is set, all asset paths resolve correctly in static output, and no server-side runtime dependencies have been introduced.
+- Avoid glassmorphism, gradients, large animations, fake counters, typing
+  effects, and visual clutter.
+
+## Deployment
+
+- Static output lives in `dist/` (git-ignored). Cloudflare Pages builds with
+  `pnpm install && pnpm build` and serves `dist/`.
+- `php bin/build.php` reproduces the HTML when a native PHP CLI is available
+  (run `tailwindcss -i src/css/main.css -o dist/assets/main.css --minify` first).

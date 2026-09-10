@@ -1,7 +1,9 @@
-.next
-node_modules
-out
-dist
+# Build output
+dist/
+node_modules/
+
+# Logs
 dev-*.log
-AGENTS.md
-docs/superpowers/
+
+# OS
+.DS_Store
