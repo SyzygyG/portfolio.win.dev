@@ -10,6 +10,20 @@ export const certificationsSection: SectionIntro = {
 
 const certificationEntries: Certification[] = [
   {
+    issuer: "Technical Education and Skills Development Authority (TESDA)",
+    title: "Developing Designs for User Interface",
+    issuedOn: { year: 2026, month: 8, day: 31 },
+    context: "TESDA Online Program",
+    verifyHref: "images/certifications/tesda-developing-ui.png",
+    verifyLabel: "Open certificate",
+    previewImage: {
+      kind: "image",
+      src: "images/certifications/tesda-developing-ui.png",
+      alt: "TESDA certificate for Developing Designs for User Interface awarded to Erwin Gamalong",
+    },
+    ariaLabel: "Open TESDA certificate for Developing Designs for User Interface",
+  },
+  {
     issuer: "ENCCULT XV",
     title: "Technical Assistant in Philippine Working Group 15",
     issuedOn: { year: 2025, month: 9, day: 26 },
