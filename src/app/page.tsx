@@ -1,31 +1,34 @@
+import { Dock } from "@/components/layout/Dock";
 import { Footer } from "@/components/layout/Footer";
-import { Navbar } from "@/components/layout/Navbar";
+import { Ticker } from "@/components/layout/Ticker";
+import { Topbar } from "@/components/layout/Topbar";
 import { About } from "@/components/sections/About";
-import { CaseStudy } from "@/components/sections/CaseStudy";
-import { Certifications } from "@/components/sections/Certifications";
 import { Contact } from "@/components/sections/Contact";
+import { Credentials } from "@/components/sections/Credentials";
 import { Experience } from "@/components/sections/Experience";
 import { Hero } from "@/components/sections/Hero";
 import { Projects } from "@/components/sections/Projects";
-import { Resume } from "@/components/sections/Resume";
 import { Skills } from "@/components/sections/Skills";
 
 export default function Page() {
   return (
     <>
-      <Navbar />
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
+      <Topbar />
       <main id="main-content">
         <Hero />
+        <Ticker />
         <About />
-        <Skills />
         <Projects />
-        <CaseStudy />
         <Experience />
-        <Certifications />
-        <Resume />
+        <Skills />
+        <Credentials />
         <Contact />
       </main>
       <Footer />
+      <Dock />
     </>
   );
 }

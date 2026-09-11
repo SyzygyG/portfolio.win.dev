@@ -9,31 +9,22 @@ export type ProjectLink = {
 
 export type Project = {
   slug: string;
-  type: string;
+  index: string;
+  category: string;
+  domain: string;
   title: string;
+  oneLiner: string;
   description: string;
+  role: string;
+  year: string;
   stack: string[];
   links: ProjectLink[];
   media: MediaAsset;
-  featured?: boolean;
   ariaLabel: string;
 };
 
-export type CaseStudyMetric = {
-  value: string;
-  label: string;
-};
-
-export type CaseStudyPanel = {
-  id: string;
-  label: string;
-  title: string;
-  paragraphs: string[];
-  bullets?: string[];
-  metrics?: CaseStudyMetric[];
-};
-
-export type CaseStudy = {
+export type ProjectsContent = {
   section: SectionIntro;
-  panels: CaseStudyPanel[];
+  footnoteLabel: string;
+  footnoteHref: string;
 };

@@ -1,68 +1,55 @@
-import Image from "next/image";
-
 import { profile } from "@/data/profile";
+import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
-import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function About() {
-  return (
-    <section aria-labelledby="about-heading" className="section section--alt" id="about">
-      <Container>
-        <div className="about__grid">
-          <aside className="about__sidebar">
-            {profile.about.avatar.kind === "image" ? (
-              <div className="about__avatar-wrap">
-                <Image
-                  alt={profile.about.avatar.alt}
-                  className="about__avatar-image"
-                  fill
-                  sizes="200px"
-                  src={
-                    profile.about.avatar.src.startsWith("/")
-                      ? profile.about.avatar.src
-                      : `/${profile.about.avatar.src}`
-                  }
-                />
-              </div>
-            ) : (
-              <div aria-label={profile.about.avatar.label} className="about__avatar-wrap" role="img">
-                <span aria-hidden="true" className="about__avatar-placeholder">
-                  {profile.about.avatar.initials}
-                </span>
-              </div>
-            )}
-            <dl className="about__meta">
-              {profile.about.meta.map((item) => (
-                <div key={item.label}>
-                  <dt>{item.label}</dt>
-                  <dd>
-                    {item.value.map((valueLine) => (
-                      <span className="about__meta-line" key={valueLine}>
-                        {valueLine}
-                      </span>
-                    ))}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </aside>
+  const { about } = profile;
 
-          <div className="about__content">
-            <SectionHeading className="section-header--compact" section={profile.about.section} />
-            {profile.about.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-            <div aria-label="Professional interests" className="about__interests">
-              {profile.about.interests.map((interest) => (
-                <Badge key={interest} variant="interest">
-                  {interest}
-                </Badge>
-              ))}
-            </div>
-          </div>
+  return (
+    <Section
+      eyebrow={about.section.eyebrow}
+      headingId={about.section.id}
+      id="about"
+      index="01"
+      title={about.section.title}
+    >
+      <div className="about__grid">
+        <div className="about__statements">
+          <span aria-hidden="true" className="arrow">
+            ↳
+          </span>
+          {about.statements.map((statement) => (
+            <p key={statement}>{statement}</p>
+          ))}
         </div>
-      </Container>
-    </section>
+
+        <div className="about__text">
+          <p className="about__lede">{about.lede}</p>
+          {about.paragraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+          <div aria-label="Personal traits" className="about__chips">
+            {about.chips.map((chip) => (
+              <Badge key={chip} variant="interest">
+                {chip}
+              </Badge>
+            ))}
+          </div>
+          <a className="link-underline" href="#experience">
+            {about.linkLabel} ↓
+          </a>
+        </div>
+      </div>
+
+      <div className="about__pillars">
+        {about.pillars.map((pillar) => (
+          <article className="pillar" key={pillar.num}>
+            <span className="pillar__num">{pillar.num}</span>
+            <h3 className="pillar__title">{pillar.title}</h3>
+            <p className="pillar__desc">{pillar.desc}</p>
+          </article>
+        ))}
+      </div>
+    </Section>
   );
 }

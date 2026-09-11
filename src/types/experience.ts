@@ -1,11 +1,10 @@
-import type { DateRange } from "@/types/date";
-
 export type ExperienceItem = {
+  initials: string;
   company: string;
   role: string;
-  range: DateRange;
   type: string;
-  description: string;
-  achievements: string[];
+  year: string;
+  quote: string;
+  location: string;
   ariaLabel: string;
 };

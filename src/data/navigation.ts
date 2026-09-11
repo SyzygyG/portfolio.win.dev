@@ -1,10 +1,10 @@
 import type { NavigationLink } from "@/types/navigation";
 
 export const navigationLinks: NavigationLink[] = [
-  { href: "#about", label: "About", id: "about" },
-  { href: "#skills", label: "Skills", id: "skills" },
-  { href: "#projects", label: "Projects", id: "projects" },
-  { href: "#experience", label: "Experience", id: "experience" },
-  { href: "#certifications", label: "Certifications", id: "certifications" },
-  { href: "#contact", label: "Get in touch", mobileLabel: "Contact", id: "contact", cta: true },
+  { href: "#about", label: "About", id: "about", mobileLabel: "About" },
+  { href: "#projects", label: "Work", id: "projects", mobileLabel: "Work" },
+  { href: "#experience", label: "Journey", id: "experience", mobileLabel: "Journey" },
+  { href: "#skills", label: "Skills", id: "skills", mobileLabel: "Skills" },
+  { href: "#certificates", label: "Certs", id: "certificates", mobileLabel: "Certs" },
+  { href: "#contact", label: "Contact", id: "contact", cta: true, mobileLabel: "Contact" },
 ];

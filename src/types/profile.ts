@@ -1,73 +1,70 @@
-import type { ActionLink, PlaceholderAsset, SectionIntro } from "@/types/content";
+import type { ActionLink, SectionIntro } from "@/types/content";
 
-export type HeroHeadingSegment = {
+export type AvatarAsset = {
+  kind: "image";
+  src: string;
+  alt: string;
+};
+
+export type Sticker = {
   text: string;
-  emphasis?: boolean;
+  tone: "sun" | "teal" | "pink" | "paper";
+  rotate?: string;
 };
-
-export type AboutMetaItem = {
-  label: string;
-  value: string[];
-};
-
-export type AvatarAsset =
-  | (PlaceholderAsset & {
-      initials: string;
-    })
-  | {
-      kind: "image";
-      src: string;
-      alt: string;
-    };
 
 export type HeroContent = {
+  tagline: string;
   availabilityLabel: string;
-  heading: HeroHeadingSegment[];
-  subcopy: string;
-  stackLabel: string;
+  greeting: string;
+  heading: { text: string; italic?: boolean }[];
+  subcopy: string[];
   actions: ActionLink[];
+  coordinates: string;
+  stickers: Sticker[];
+  sideLabels: string[];
+  portfolioTag: string;
+  aboutLinkLabel: string;
 };
 
-export type ResumeInfo = {
-  section: SectionIntro;
-  preview:
-    | (PlaceholderAsset & {
-        text: string;
-      })
-    | {
-        kind: "image";
-        src: string;
-        alt: string;
-        text?: string;
-      };
-  download: ActionLink;
-  open: ActionLink;
+export type AboutPillar = {
+  num: string;
+  title: string;
+  desc: string;
 };
 
 export type AboutContent = {
   section: SectionIntro;
+  statements: string[];
+  lede: string;
   paragraphs: string[];
-  meta: AboutMetaItem[];
-  interests: string[];
+  chips: string[];
+  linkLabel: string;
+  pillars: AboutPillar[];
   avatar: AvatarAsset;
 };
 
-export type LearningContent = {
+export type ResumeInfo = {
+  href: string;
   label: string;
-  items: string[];
+};
+
+export type GitHubIdentity = {
+  username: string;
+  href: string;
 };
 
 export type Profile = {
   name: string;
+  shortName: string;
   role: string;
   title: string;
   description: string;
   keywords: string;
   ogDescription: string;
   location: string;
+  github: GitHubIdentity;
   hero: HeroContent;
   about: AboutContent;
-  coreStack: string[];
-  learning: LearningContent;
+  marquee: string[];
   resume: ResumeInfo;
 };

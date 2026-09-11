@@ -5,9 +5,8 @@ import { contactEntries } from "@/data/contact";
 
 export const contactSection: SectionIntro = {
   id: "contact-heading",
-  eyebrow: "Contact",
-  title: "Let's talk.",
-  lead: "Open to full-time roles, contract work, and interesting conversations.",
+  eyebrow: "Good things start with a hello",
+  title: "Let's make something great.",
 };
 
 export const contactListAriaLabel = "Contact channels";
@@ -15,9 +14,10 @@ export const contactListAriaLabel = "Contact channels";
 export const footerContent = {
   copyrightSuffix: "All rights reserved.",
   linksAriaLabel: "Footer links",
+  tagline: "Developer by craft. Leader by nature.",
 };
 
-const footerLinkOrder = ["Phone", "LinkedIn", "Email"] as const;
+const footerLinkOrder = ["GitHub", "LinkedIn", "Email", "Phone"] as const;
 
 export const contactLinks = contactEntries;
 

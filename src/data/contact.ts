@@ -21,4 +21,10 @@ export const contactEntries: SocialLink[] = [
     href: "https://linkedin.com/in/gamalongerwin/",
     icon: "linkedin",
   },
+  {
+    label: "GitHub",
+    value: "github.com/SyzygyG",
+    href: "https://github.com/SyzygyG",
+    icon: "github",
+  },
 ];

@@ -4,23 +4,32 @@ This repo is easiest to maintain when content edits stay in `src/data/` and comp
 
 ## Single Source of Truth
 
-- `src/data/profile.ts`: owner identity, hero/about/resume content, learning bar, and profile placeholders
-- `src/data/navigation.ts`: primary navigation labels and anchors
-- `src/data/skills.ts`: skills section intro, grouped skills, and the current audit note
-- `src/data/projects.ts`: projects section intro, project cards, case study copy, and media placeholders
-- `src/data/experience.ts`: experience section intro and experience entries
-- `src/data/certifications.ts`: certifications section intro and credential entries
-- `src/data/socials.ts`: contact section intro, contact links, and footer copy
+- `src/data/profile.ts`: owner identity, hero copy/stickers/coordinates, marquee phrases, about content, resume link, GitHub handle
+- `src/data/navigation.ts`: topbar + dock section links (`#about`, `#projects`, `#experience`, `#skills`, `#certificates`, `#contact`)
+- `src/data/skills.ts`: tabbed skill inventory (devicon slugs) + "currently exploring" strip
+- `src/data/projects.ts`: project postcards (category, domain label, role, year, one-liner, stack, links)
+- `src/data/experience.ts`: quote-driven experience rows + education card
+- `src/data/certifications.ts`: credential entries; the UI spotlights three and lists the rest in a dialog
+- `src/data/contact.ts`: email / phone / LinkedIn / GitHub entries + resume document path
+- `src/data/socials.ts`: contact section intro, footer tagline and link ordering
 
 ## Section Ownership
 
-- `Hero`, `About`, `Resume`: read from `profile.ts`
-- `Skills`: reads from `skills.ts`
-- `Projects` and `CaseStudy`: read from `projects.ts`
-- `Experience`: reads from `experience.ts`
-- `Certifications`: read from `certifications.ts`
-- `Contact` and `Footer`: read from `socials.ts`
-- `Navbar`: reads from `navigation.ts`
+- `Topbar`, `Ticker` (marquee): read from `navigation.ts` + `profile.ts`
+- `Hero`: reads `profile.ts` (hero + avatar)
+- `About`: reads `profile.ts`
+- `Projects`: reads `projects.ts`
+- `Experience`: reads `experience.ts` + resume link from `profile.ts`
+- `Skills`: reads `skills.ts`; devicon images load from jsdelivr with a glyph fallback on error
+- `Credentials`: reads `certifications.ts`; spotlight order is controlled by `SPOTLIGHT_SLUGS` in the component
+- `Contact`: reads `contact.ts` + `socials.ts`; the form composes a `mailto:` link
+- `Footer`: reads `socials.ts`
+
+## Assets
+
+- Ship raster imagery as WebP under `public/images/` (project shots, headshot, resume preview, certificates).
+- Decorative mascots live in `public/images/decor/` and are original illustrations; reuse them rather than adding new downloads.
+- Fonts are self-hosted woff2 files in `public/fonts/` (Baloo 2, Nunito, IBM Plex Mono) referenced from `globals.css`.
 
 ## Placeholder Workflow
 
@@ -30,5 +39,4 @@ This repo is easiest to maintain when content edits stay in `src/data/` and comp
 
 ## Review Notes
 
-- `src/data/skills.ts` currently carries an audit note because the inventory may include entries that need owner confirmation.
-- Treat that note as a reminder to verify the list against the resume and project history before considering it final.
+- `src/data/skills.ts` inventory is grouped for display; verify against the resume and project history before considering it final.

@@ -1,20 +1,20 @@
-import { footerContent, footerLinks } from "@/data/socials";
-import { profile } from "@/data/profile";
 import { FooterYear } from "@/components/layout/FooterYear";
-import { Container } from "@/components/ui/Container";
+import { profile } from "@/data/profile";
+import { footerContent, footerLinks } from "@/data/socials";
 
 export function Footer() {
   return (
     <footer className="footer" role="contentinfo">
-      <Container>
-        <div className="footer__inner">
-          <span className="footer__logo">{profile.name}</span>
-          <span className="footer__copy">
-            Copyright <FooterYear /> {profile.name}. {footerContent.copyrightSuffix}
-          </span>
+      <div className="container">
+        <p className="footer__word">
+          ERWIN<span aria-hidden="true" className="star">✳</span>GAMALONG.
+        </p>
+        <div className="footer__row">
+          <span className="footer__tagline">{footerContent.tagline}</span>
           <nav aria-label={footerContent.linksAriaLabel} className="footer__links">
             {footerLinks.map((link) => (
               <a
+                className="chip"
                 href={link.href}
                 key={link.label}
                 rel={link.href.startsWith("http") ? "noreferrer noopener" : undefined}
@@ -24,8 +24,11 @@ export function Footer() {
               </a>
             ))}
           </nav>
+          <span className="footer__copy">
+            © <FooterYear /> {profile.name}. {footerContent.copyrightSuffix}
+          </span>
         </div>
-      </Container>
+      </div>
     </footer>
   );
 }

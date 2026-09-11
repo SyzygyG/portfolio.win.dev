@@ -1,19 +1,59 @@
-import { experienceItems, experienceSection } from "@/data/experience";
-import { ExperienceCard } from "@/components/cards/ExperienceCard";
-import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { educationCard, experienceItems, experienceSection } from "@/data/experience";
+import { profile } from "@/data/profile";
+import { Section } from "@/components/ui/Section";
 
 export function Experience() {
   return (
-    <section aria-labelledby="experience-heading" className="section section--alt" id="experience">
-      <Container>
-        <SectionHeading section={experienceSection} />
-        <div className="experience__list" role="list">
-          {experienceItems.map((item) => (
-            <ExperienceCard item={item} key={`${item.company}-${item.role}`} />
-          ))}
+    <Section
+      aside={
+        <a
+          className="link-underline"
+          href={profile.resume.href}
+          rel="noreferrer"
+          target="_blank"
+        >
+          {profile.resume.label} ↗
+        </a>
+      }
+      eyebrow={experienceSection.eyebrow}
+      headingId={experienceSection.id}
+      id="experience"
+      index="03"
+      title={
+        <>
+          Built with experience. <em>Grown with people.</em>
+        </>
+      }
+    >
+      <div className="exp__list">
+        {experienceItems.map((item) => (
+          <article aria-label={item.ariaLabel} className="exp-item" key={item.company}>
+            <span aria-hidden="true" className="exp-item__badge">
+              {item.initials}
+            </span>
+            <div>
+              <h3 className="exp-item__company">{item.company}</h3>
+              <p className="exp-item__role">
+                {item.role}
+                <span className="type">{item.type}</span>
+              </p>
+              <p className="exp-item__quote">“{item.quote}”</p>
+              <p className="exp-item__location">{item.location}</p>
+            </div>
+            <span className="exp-item__year">{item.year}</span>
+          </article>
+        ))}
+      </div>
+
+      <div className="edu-card">
+        <span aria-hidden="true" className="edu-card__arrow">
+          ↗
+        </span>
+        <div>
+          <p className="edu-card__title">{educationCard.title}</p>
+          <p className="edu-card__detail">{educationCard.detail}</p>
         </div>
-      </Container>
-    </section>
+      </div>
+    </Section>
   );
 }

@@ -6,7 +6,8 @@
     "dev": "node scripts/dev.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "node --experimental-strip-types --test src/lib/dates.test.ts src/lib/recruiter.test.ts"
   },
   "dependencies": {
     "next": "^15.0.0",

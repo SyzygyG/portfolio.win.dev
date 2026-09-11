@@ -1,110 +1,75 @@
 import type { Profile } from "@/types/profile";
 
-import { contactEntries, resumeDocumentHref } from "@/data/contact";
-
-const location = "Quezon City, Philippines";
-const emailContact = contactEntries.find((link) => link.icon === "email");
+import { resumeDocumentHref } from "@/data/contact";
 
 export const profile: Profile = {
   name: "Erwin Gamaliel Gamalong",
-  role: "Full Stack Developer Project Manager",
-  title: "Erwin Gamaliel Gamalong - Full Stack Developer | Project Manager",
+  shortName: "Erwin Gamalong",
+  role: "Developer & Project Manager",
+  title: "Erwin Gamalong — Developer & Project Manager",
   description:
     "Erwin Gamaliel Gamalong - Goal-oriented full stack developer and project manager with experience across web and mobile development.",
   keywords: "Erwin Gamalong, Full Stack Developer, Project Manager, React, Node.js, PHP, Flutter, portfolio",
   ogDescription:
     "Goal-oriented full stack developer and project manager with experience leading web and mobile software projects.",
-  location,
+  location: "Quezon City, Philippines",
+  github: {
+    username: "SyzygyG",
+    href: "https://github.com/SyzygyG",
+  },
   hero: {
+    tagline: "Developer by craft. Leader by nature.",
     availabilityLabel: "Available for opportunities",
+    greeting: "Hey there, I'm Erwin",
     heading: [
-      { text: "Full Stack Developer & Project Manager",},
-      { text: "in Quezon City", emphasis: true },
-
+      { text: "I build digital things." },
+      { text: "And bring ideas" },
+      { text: "to life.", italic: true },
     ],
-    subcopy:
-      "Goal-oriented and adaptable full stack developer with hands-on experience in web and mobile development, content-management systems, and background as a project manager for various technical projects. Based in Quezon City, Philippines.",
-    stackLabel: "Core stack",
+    subcopy: ["A full stack developer & project manager connecting", "thoughtful design, clean code, and the people behind it."],
     actions: [
-      { label: "View projects", href: "#projects", variant: "primary", icon: "folder" },
-      { label: "Download resume", href: resumeDocumentHref, variant: "outline", icon: "download", download: true },
-      { label: "Contact me", href: "#contact", variant: "outline" },
+      { label: "Explore my work", href: "#projects", variant: "primary" },
+      { label: "Let's build something", href: "#contact", variant: "outline" },
     ],
+    coordinates: "14.6760° N · 121.0437° E",
+    stickers: [
+      { text: "The human behind the code ☺", tone: "sun", rotate: "-4deg" },
+      { text: "Built with purpose.", tone: "teal", rotate: "3deg" },
+      { text: "a little code, a lot of curiosity.", tone: "paper", rotate: "-2deg" },
+      { text: "Based in Quezon City, PH", tone: "pink", rotate: "2deg" },
+    ],
+    sideLabels: ["Full stack developer", "Project manager"],
+    portfolioTag: "Portfolio — 2026",
+    aboutLinkLabel: "A little more about me",
   },
   about: {
     section: {
       id: "about-heading",
-      eyebrow: "About",
-      title: "Know more about Erwin.",
+      eyebrow: "A little about me",
+      title: "Good ideas deserve more than a “what if.”",
     },
+    statements: ["Curious mind. Collaborative spirit.", "Always building what's next."],
+    lede: "I turn complex challenges into digital experiences that feel simple.",
     paragraphs: [
-      "I'm Erwin Gamaliel Gamalong, a full stack developer and project manager, who has built a diverse skill set through my academic career, intern experience, and project leadership roles. My work has ranged from web platforms and mobile applications to immersive virtual environments and project lifecycles.",
-      "I enjoy working as a full stack and adapting to different requirements. My experience includes, but not limited to React, PHP, Python, .NET, Flutter, Firebase, and Oracle, along with the development tools that help teams collaborate towards one common objective.",
-      "Beyond writing code, I've also led teams in building standalone, web, and mobile applications using Agile methodologies. I value coordination, clear communication, and high-quality results. I am a HUGE believer of the Laissez-faire leadership and trusting each individual on the team.",
+      "I'm Erwin Gamaliel Gamalong, a full stack developer and project manager from Quezon City, Philippines. From web platforms and mobile apps to immersive virtual environments, I enjoy connecting the big picture with the little details.",
+      "Beyond the code, I lead with trust. I believe the best work happens when people have the freedom to do what they do best — with a clear direction and a shared goal.",
     ],
-    meta: [
-      { label: "Location", value: [location] },
-      { label: "Degree", value: ["B.S. Information Technology", "Quezon City University", "Graduation Date: June 2026"] },
-      { label: "Status", value: ["Open to flexible, hybrid and full-time roles"] },
-      { label: "Email", value: emailContact ? [emailContact.value] : [] },
-    ],
-    interests: [
-      "Web Development",
-      "Mobile Applications",
-      "Content Management Systems",
-      "Workflow Efficiency",
-      "Team Leadership",
-      "Software Quality",
+    chips: ["Problem solver", "Team player", "Lifelong learner"],
+    linkLabel: "Here's where I've been",
+    pillars: [
+      { num: "01", title: "Full Stack Development", desc: "From the interface to the infrastructure." },
+      { num: "02", title: "Project Management", desc: "Bringing people, plans, and products together." },
+      { num: "03", title: "Digital Experiences", desc: "Web, mobile, and everything in between." },
     ],
     avatar: {
       kind: "image",
-      src: "images/erwin-headshot.png",
-      alt: "Professional headshot of Erwin Gamaliel Gamalong",
+      src: "images/erwin-headshot.webp",
+      alt: "Erwin Gamaliel Gamalong",
     },
   },
-  coreStack: [
-    "React",
-    "PHP",
-    "Python",
-    ".NET",
-    "Flutter",
-    "Node.js",
-    "Firebase",
-    "Oracle Database",
-    "MongoDB",
-    "MySQL",
-  ],
-  learning: {
-    label: "Currently learning",
-    items: ["DevOps", "LLM Integration", "Web Security", "SEO Advanced Concepts"],
-  },
+  marquee: ["Creative thinking", "Clean code", "People-first leadership", "Real-world impact"],
   resume: {
-    section: {
-      id: "resume-heading",
-      eyebrow: "Resume",
-      title: "Available for download.",
-      lead:
-        "My resume covers education, leadership roles, internship experience, and selected technical projects.",
-    },
-    preview: {
-      kind: "image",
-      src: "images/resume-preview.png",
-      alt: "Preview of Erwin Gamaliel Gamalong's resume",
-      text: "Resume preview",
-    },
-    download: {
-      label: "Download PDF",
-      href: resumeDocumentHref,
-      variant: "primary",
-      icon: "download",
-      download: true,
-    },
-    open: {
-      label: "Open in browser",
-      href: resumeDocumentHref,
-      variant: "outline",
-      target: "_blank",
-      rel: "noreferrer",
-    },
+    href: resumeDocumentHref,
+    label: "View my resume",
   },
 };

@@ -1,47 +1,59 @@
-import type { ContentAudit, SectionIntro } from "@/types/content";
-import type { SkillGroup } from "@/types/skill";
+import type { SectionIntro } from "@/types/content";
+import type { SkillTab } from "@/types/skill";
 
 export const skillsSection: SectionIntro = {
   id: "skills-heading",
-  eyebrow: "Technical skills",
-  title: "Programming Expertise and Toolkits",
-  lead: "Here are the tools and platforms I have worked with in my projects and professional experience.",
+  eyebrow: "Under the hood",
+  title: "The tools behind the possibilities.",
+  lead: "A versatile toolkit. The right tool for the right problem.",
 };
 
-export const skillsAudit: ContentAudit = {
-  status: "confirmed",
-  note: "Repository-aligned inventory based on the current public GitHub projects and the tools directly reflected in them.",
-};
-
-export const skillGroups: SkillGroup[] = [
+export const skillTabs: SkillTab[] = [
   {
-    title: "Programming Languages",
-    ariaLabel: "Programming languages",
-    items: ["TypeScript", "JavaScript", "Java", "Python", "PHP", "Dart", "C#", "C++", "HTML", "CSS"],
+    id: "development",
+    label: "Development",
+    items: [
+      { name: "React", category: "Frontend", icon: "react/react-original.svg" },
+      { name: "JavaScript", category: "Language", icon: "javascript/javascript-original.svg" },
+      { name: "TypeScript", category: "Language", icon: "typescript/typescript-original.svg" },
+      { name: "Node.js", category: "Backend", icon: "nodejs/nodejs-original.svg" },
+      { name: "Python", category: "Language", icon: "python/python-original.svg" },
+      { name: "PHP", category: "Language", icon: "php/php-original.svg" },
+      { name: "Laravel", category: "Framework", icon: "laravel/laravel-original.svg" },
+      { name: "Flutter", category: "Mobile", icon: "flutter/flutter-original.svg" },
+      { name: "Angular", category: "Frontend", icon: "angular/angular-original.svg" },
+      { name: ".NET", category: "Framework", icon: "dotnetcore/dotnetcore-original.svg" },
+      { name: "HTML5", category: "Web", icon: "html5/html5-original.svg" },
+      { name: "Tailwind CSS", category: "Styling", icon: "tailwindcss/tailwindcss-original.svg" },
+    ],
   },
   {
-    title: "Frontend & Web",
-    ariaLabel: "Frontend and web technologies",
-    items: ["React", "Next.js", "Angular", "Vite", "Tailwind", "Bootstrap", "jQuery", "Razor"],
+    id: "data-cloud",
+    label: "Data & Cloud",
+    items: [
+      { name: "MongoDB", category: "Database", icon: "mongodb/mongodb-original.svg" },
+      { name: "MySQL", category: "Database", icon: "mysql/mysql-original.svg" },
+      { name: "Firebase", category: "Backend-as-a-service", icon: "firebase/firebase-original.svg" },
+      { name: "Oracle", category: "Database", icon: "oracle/oracle-original.svg" },
+      { name: "Cloudinary", category: "Media", icon: "cloudinary/cloudinary-original.svg" },
+      { name: "PayMongo", category: "Payments", glyph: "₱" },
+    ],
   },
   {
-    title: "Backend & APIs",
-    ariaLabel: "Backend and API technologies",
-    items: ["Node.js", "Express", "Flask", "Laravel", "ASP.NET", "REST APIs"],
-  },
-  {
-    title: "Mobile, IoT & Realtime",
-    ariaLabel: "Mobile, Internet of Things, and realtime technologies",
-    items: ["Flutter", "Firebase", "Cloud Firestore", "Arduino", "Bluetooth"],
-  },
-  {
-    title: "Data & Services",
-    ariaLabel: "Data and service platforms",
-    items: ["MongoDB Atlas", "MySQL", "Cloudinary", "PayMongo", "Firebase Data Connect"],
-  },
-  {
-    title: "Tooling & Deployment",
-    ariaLabel: "Development tooling and deployment platforms",
-    items: ["Git and GitHub", "Docker", "Android Studio", "Vercel", "Railway", "Visual Studio and Visual Studio Code", "PuTTTy"],
+    id: "tools",
+    label: "Tools & Workflow",
+    items: [
+      { name: "Git", category: "Version control", icon: "git/git-original.svg" },
+      { name: "GitHub", category: "Collaboration", icon: "github/github-original.svg" },
+      { name: "Docker", category: "Containers", icon: "docker/docker-original.svg" },
+      { name: "Vercel", category: "Deployment", icon: "vercel/vercel-original.svg" },
+      { name: "VS Code", category: "Editor", icon: "visualstudiocode/visualstudiocode-original.svg" },
+      { name: "Android Studio", category: "Mobile IDE", icon: "androidstudio/androidstudio-original.svg" },
+    ],
   },
 ];
+
+export const exploring = {
+  label: "Currently exploring",
+  items: ["DevOps", "LLM Integration", "Web Security", "Advanced SEO"],
+};
